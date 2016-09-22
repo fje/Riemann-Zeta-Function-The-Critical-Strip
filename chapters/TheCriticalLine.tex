@@ -1,4 +1,4 @@
-In this chapter we will introduce the theta function, define the xi function and prove some important identities in order to come up with an integral formula that allows us to draw far-reaching conclusion about the occurrence of zeros of the Riemann zeta function on the critical line.
+In this chapter we will introduce the theta function, define the xi function and prove some important identities in order to come up with an integral formula that allows us to draw a far-reaching conclusion about the occurrence of zeros of the Riemann zeta function on the critical line.
 
 \section{Mellin Transform}
 
@@ -32,7 +32,37 @@ In this chapter we will introduce the theta function, define the xi function and
 	is absolutely convergent in $a < \sigma < b$. Then f is recoverable via the inverse Mellin transform from its Mellin transform.
 \end{theorem}
 \begin{proof}
-	This theorem follows from the inversion formula for the Laplace transform and the proof can be found in some renowned books about complex analysis, for example in $\cite{McLachlan1953}$.
+	This theorem follows from the inversion formula for the Laplace transform and the proof can for example be found in $\cite{McLachlan1953}$.
+\end{proof}
+
+
+\section{The Poisson Summation Formula}
+
+
+\begin{definition}
+	For each $a > 0$ we define $\mathcal{F}_a$ by the space of all functions $f$ that satisfy the following two conditions:
+\begin{enumerate}
+	\item[(i)] The function $f$ is holomorphic on the horizontal strip
+		\begin{equation*}
+			S_a = \fbr{s \in \field{C} \colon \abs{t} < a}.
+		\end{equation*}
+	\item[(ii)] There exists a constant $A > 0$
+		\begin{equation*}
+			\abs{f(s)} \leq \frac{A}{1 + \sigma^2} \hsp \textit{ for all } \sigma \in \field{R}, \abs{y} < a.
+		\end{equation*}
+\end{enumerate}
+\end{definition}
+
+
+\begin{theorem}[Poisson Summation Formula]
+	For $f \in \mathcal{F}_a$, the Poisson summation may be stated as
+\begin{equation*}
+	\sum _{n = -\infty} ^\infty f(n) = \sum _{k = -\infty} ^\infty \hat{f}(k),
+\end{equation*}
+	where $\hat{f}$ is the Fourier transform of $f$.
+\end{theorem}
+\begin{proof}
+	The entire proof can be found in \cite{Stein2003}.
 \end{proof}
 
 
@@ -44,18 +74,18 @@ In this chapter we will introduce the theta function, define the xi function and
 \begin{equation*}
 \begin{aligned}
 	&\vartheta \colon \field{R}_{> 0} \to \field{C}, \\
-	&\vartheta(x) = \sum _{n = -\infty} ^{\infty} e^{\pi n^2 x}
+	&\vartheta(x) = \sum _{n = -\infty} ^{\infty} e^{-\pi n^2 x}
 \end{aligned}
 \end{equation*}
 	is known as a version of the renowned "theta" function. For further references we also introduce the auxiliary function
 \begin{equation*}
-	\omega(x) = \frac{1}{2}\cbr{\vartheta(x) - 1} = \sum _{n = 1} ^{\infty} e^{\pi n^2 x}.
+	\omega(x) = \frac{1}{2}\cbr{\vartheta(x) - 1} = \sum _{n = 1} ^{\infty} e^{-\pi n^2 x}.
 \end{equation*}
 \end{definition}
 
 
 \begin{proposition}
-	If $f(x) = e^{-\pi x^2}$ then $f(x) = \hat{f}(\xi)$ where $\hat{f}$ is the Fourier transform of $f$ or respectively
+	If $f(x) = e^{-\pi x^2}$ then $f(x) = \hat{f}(\xi)$, where $\hat{f}$ is the Fourier transform of $f$ or respectively
 \begin{equation*}
 		\int _{-\infty} ^\infty e^{-\pi x^2} e^{-2 \pi i x \xi} dx = e^{-\pi \xi^2}.
 \end{equation*}
@@ -166,7 +196,7 @@ In this chapter we will introduce the theta function, define the xi function and
 \end{equation*}
 \end{lemma}
 \begin{proof}
-	The change of variables $y \to \sqrt{t} y$ shows that the Fourier transform of the function $f(y) = e^{-\pi x y^2}$ is $\hat{f}(\xi) = \frac{1}{\sqrt{\xi}} e^{-\frac{\pi \xi^2}{x}}$. Applying the Poisson summation formula to the pair $f$ and $\hat{f}$ we get
+	The change of variables $y \to \sqrt{t} y$ shows that the Fourier transform of the function $f(y) = e^{-\pi x y^2}$ is $\hat{f}(\xi) = \frac{1}{\sqrt{\xi}} e^{-\frac{\pi \xi^2}{x}}$. Apparently $f(y)$ belongs to $\mathcal{F}_a$. Thus we may apply the Poisson summation formula to the pair $\cbr{f, \hat{f}}$ and we get
 \begin{equation*}
 	\vartheta(x) = \sum _{n = -\infty} ^\infty e^{-\pi x n^2} = \sum _{n = -\infty} ^\infty \frac{1}{\sqrt{x}} e^{-\frac{\pi \xi^2}{x}} = \frac{1}{\sqrt{x}} \vartheta(\frac{1}{x}).
 \end{equation*}
@@ -199,7 +229,10 @@ In this chapter we will introduce the theta function, define the xi function and
 	&\xi(s) = \frac{1}{2}s(s - 1) \pi ^{-\frac{1}{2} s} \Gamma(\frac{s}{2}) \zeta(s)
 \end{aligned}
 \end{equation*}
-	be the xi function.
+	be the xi function and for further reference we define
+\begin{equation*}
+	\xi^*(s) = \frac{2}{s(s - 1)} \xi(s) = \pi ^{-\frac{1}{2} s} \Gamma(\frac{s}{2}) \zeta(s)
+\end{equation*}
 \end{definition}
 
 
@@ -242,8 +275,8 @@ In this chapter we will introduce the theta function, define the xi function and
 \begin{equation*}
 \begin{aligned}	
 	\xi(s) 
-		&= s(1 - s) \pi^{-\frac{1}{2}s}\Gamma(\frac{1}{2}s)\zeta(s) \\
-		&= (1 - s)s \pi^{-\frac{1}{2} + \frac{1}{2}s} \Gamma(\frac{1}{2} - \frac{1}{2}s)\zeta(1 - s) = \xi(1 - s).
+		&= \frac{1}{2}s(1 - s) \pi^{-\frac{1}{2}s}\Gamma(\frac{1}{2}s)\zeta(s) \\
+		&= \frac{1}{2}(1 - s)s \pi^{-\frac{1}{2} + \frac{1}{2}s} \Gamma(\frac{1}{2} - \frac{1}{2}s)\zeta(1 - s) = \xi(1 - s).
 \end{aligned}
 \end{equation*}
 \end{proof}
@@ -276,26 +309,35 @@ In this chapter we will introduce the theta function, define the xi function and
 	$\Xi$ is a real function.
 \end{lemma}
 \begin{proof}
-	Let $t \in \field{R}$. We have
+	We first recall Proposition~\ref{pro:XiIdentity} which immediately yields the invariant form
 \begin{equation*}
-	\xi(s) = \int _0 ^\infty x^{\frac{s - \frac{1}{2}}{2}} x^{\frac{1}{4} - 1} \omega(x) dx = \int _0 ^\infty x^{-\frac{s - \frac{1}{2}}{2}} x^{\frac{1}{4} - 1} \omega(x) dx.
+	x^{-\frac{1}{4}} \vartheta(\frac{1}{x}) = x^{\frac{1}{4}} \vartheta(x).
+\end{equation*}
+	Plugging this into the final integral form of the functional equation of $\xi^*$ from Proposition~\ref{pro:XiIdentity} gives
+\begin{equation*}
+	\xi^*(s) = \int _0 ^\infty x^{\frac{s - \frac{1}{2}}{2}} x^{\frac{1}{4} - 1} \omega(x) dx = \int _0 ^\infty x^{-\frac{s - \frac{1}{2}}{2}} x^{\frac{1}{4} - 1} \omega(x) dx.
 \end{equation*}
 	By addition of the two sides we obtain
 \begin{equation*}
-	\xi(s) = \int _0 ^\infty \cosh\cbr{\frac{1}{2} \cbr{s - \frac{1}{2}} \log(x)} x^{\frac{1}{4} - 1} \omega(x) dx.
+	\xi^*(s) = \int _0 ^\infty \cosh\cbr{\frac{1}{2} \cbr{s - \frac{1}{2}} \log(x)} x^{\frac{1}{4} - 1} \omega(x) dx.
 \end{equation*}
-	Further we deduce
+	Further, by applying the addition theorem
+\begin{equation*}
+	\cosh(x + y) = \cosh(x)\cosh(y) + \sinh(x) \sinh(y)
+\end{equation*}	
+	for all $x,y \in \field{R}$ we may deduce that
 \begin{equation*}
 \begin{aligned}	
-	\xi(s) 
+	\xi^*(s) 
 		&= \int _0 ^\infty \cosh\cbr{\frac{1}{2} \cbr{\sigma - \frac{1}{2}} \log(x)} \cos\cbr{\frac{t}{2} \log(x)} x^{\frac{1}{4} - 1} \omega(x) dx \\
 		&+ \int _0 ^\infty \sinh\cbr{\frac{1}{2} \cbr{\sigma - \frac{1}{2}} \log(x)} \sin\cbr{\frac{t}{2} \log(x)} x^{\frac{1}{4} - 1} \omega(x) dx.
 \end{aligned}
 \end{equation*}
-	We in fact observe that
+	We now in fact observe that
 \begin{equation*}
-	\Im(\Xi(t)) = \lim _{\sigma \to \frac{1}{2}} \Im(\xi(\sigma + it)) = 0.
+	\Im(\Xi(t)) = \lim _{\sigma \to \frac{1}{2}} \Im(\xi(\sigma + it)) = \lim _{\sigma \to \frac{1}{2}} \Im\cbr{\frac{s(s - 1)}{2}\xi^*(\sigma + it)} = 0,
 \end{equation*}
+	hence $\Xi$ is entirely real.
 \end{proof}
 
 
@@ -342,8 +384,8 @@ In this chapter we will introduce the theta function, define the xi function and
 \begin{equation*}
 \begin{aligned}
 	\Phi(x) 
-		&= -\frac{\pi \sqrt{z}}{2 i \pi} \int _{\frac{1}{2} -\infty} ^{\frac{1}{2} + \infty} \Gamma(w) \pi ^{-w} \zeta(w) \cbr{\frac{1}{z^2}}^{-w} dw \\
-		&= -\frac{\pi}{\sqrt{z}} \phi\cbr{\frac{1}{z^2}} + \frac{1}{2} \pi z.
+		&= -\frac{\pi \sqrt{z}}{2 i \pi} \int _{\frac{1}{4} -\infty} ^{\frac{1}{4} + \infty} \Gamma(w) \pi ^{-w} \zeta(2w) \cbr{\frac{1}{z^2}}^{-w} dw \\
+		&= -\frac{\pi}{\sqrt{z}} \omega\cbr{\frac{1}{z^2}} + \frac{1}{2} \pi z.
 \end{aligned}
 \end{equation*}
 	After re-substitution we receive the identity we wanted to show.

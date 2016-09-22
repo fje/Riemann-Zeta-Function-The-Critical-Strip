@@ -1,7 +1,7 @@
 The prime number theorem is a very fundamental statement about the asymptotic behaviour of the distribution of prime numbers. Based on the fact which we established in the previous chapter, that the Riemann zeta function doesn't have zeros on the line $\sigma = 1$ and by introducing Tchebychev's psi-function together with two auxiliary functions, we will have enough tools to manage to prove said theorem.
 
 
-\section{Tchebychev's $\phi$ function}
+\section{Tchebychev's $\psi$ function}
 
 
 \begin{definition}
@@ -24,7 +24,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 	&\psi(x) = \sum _{p^m \leq x} \log(p),
 \end{aligned}
 \end{equation*}
-	for some prime number $p$ and positive integer $m \in \field{N}_{> 0}$ is often referred to as Tchebychev's psi-function.
+	for some prime number $p$ and positive integer $m \in \field{N}_{> 0}$ is often referred to as Tchebychev's psi function.
 \end{definition}
 
 
@@ -162,7 +162,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 		\left\{
     		\begin{array}{ll}
         		0, &\text{if } 0 \leq a \leq 1,\\
-        		1 - \frac{1}{a}, &\text{if } 1 \leq a.
+        		1 - \frac{1}{a}, &\text{if } 1 < a.
         	\end{array}
 		\right.
 \end{equation*}
@@ -287,26 +287,12 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \end{proof}
 
 
-\begin{theorem}[Prime number theorem]
+\begin{theorem}[Prime number theorem]\label{the:PrimeNumber}
 	We have that $\psi_1(x) \sim \frac{x^2}{2}$ as $x \to \infty$.
 \end{theorem}
 \begin{proof}
 \begin{figure}[!htb]
-\begin{minipage}[c]{0.5\textwidth}
 \centering
-\begin{equation*}
-\begin{aligned}
-	&\begin{aligned}
-		C(T) \colon \bbr{0, \pi} &\to \field{C}, \\ \phi &\mapsto c + Te^{i (\phi + \frac{\pi}{2}) },
-	\end{aligned} \\
-	&\begin{aligned}
-		S(T) \colon \bbr{-T, T} &\to \field{C}, \\ t &\mapsto c + it
-	\end{aligned}
-\end{aligned}
-\end{equation*}
-\end{minipage}
-\begin{minipage}[c]{0.5\textwidth}
-\raggedleft
 \begin{tikzpicture}
 	[decoration={
 		markings,
@@ -337,19 +323,15 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 	\draw[xshift=0cm] (-3.3,0) node[circle,fill,inner sep=1.2pt](a){};	
 	\draw[xshift=0cm] (-0.5,0) node[circle,fill,inner sep=1.2pt](a){};
 	\draw[xshift=0cm] (2.5,0) node[circle,fill,inner sep=1.2pt](a){};
-
-	
-
 \end{tikzpicture}
-\end{minipage}
-\caption{Contour $\Gamma(T)$}
+\caption{Contours for Theorem~\ref{the:PrimeNumber}}
 \label{fig:ContourGamma}
 \end{figure}
 	We first fix $c > 1$, say $c = 2$ and assume that $x$ is also fixed with $x \geq 2$. Let $F(s)$ denote the integrand
 \begin{equation*}
 	F(s) = \frac{x^{s + 1}}{s(s + 1)} \cbr{-\frac{\zeta'(s)}{\zeta(s)}}.
 \end{equation*}
-	Now we deform the vertical line from $c - i \infty$ to $c + i \infty$ to the path shown in Figure. Cauchy's theorem allows us to see that
+	Now we deform the vertical line from $c - i \infty$ to $c + i \infty$ to the path shown in Figure~\ref{fig:ContourGamma}. Cauchy's theorem allows us to see that
 \begin{equation*}
 	\frac{1}{2 \pi i} \int _{c - i \infty} ^{c + i \infty} F(s) ds = \frac{1}{2 \pi i} \int _{\gamma(T)} F(s) ds.
 \end{equation*}

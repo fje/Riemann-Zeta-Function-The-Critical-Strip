@@ -1,10 +1,10 @@
-The Riemann zeta function has many interesting properties in the critical strip that have a huge impact on the analytic number theory, especially concerning prime numbers. We want to have a closer look at its zero-free regions and find good estimates of the function's growth under certain circumstances. We will need these later on in order to proof the prime number theorem and in order to show that the Riemann zeta function has infinitely many zeros on the critical line. \\
+The Riemann zeta function has many interesting properties in the critical strip that have a huge impact on the analytic number theory, especially concerning the distribution of prime numbers. We want to have a closer look at its zero-free regions and find good estimates of the function's growth under certain circumstances. These will be needed later on in order to proof the prime number theorem and to show that the Riemann zeta function has infinitely many zeros on the critical line. \\
 This essay is a continuation of \cite{Jesacher2016} and is mainly based on \cite{Ahlfors1966} and \cite{Titchmarsh1986}. \\
 Henceforth let $s \in \field{C}$ be a complex number where $\sigma \coloneqq \Re(s)$ and $t \coloneqq \Im(s)$ and if nothing else is stated let $p \in \field{N}$ be a prime number.
 
 
 \section{Properties of $\zeta$ in the critical strip}
-First of all we want to draw some conclusions about the function's behaviour at the borders of the critical strip.
+First of all we want to draw some conclusions about the function's behaviour at the borders of the critical strip and show the absence of zeros on the lines $\sigma = 0$ and $\sigma = 1$.
 
 
 \begin{lemma}\label{lem:LogEulerProd}
@@ -14,7 +14,7 @@ First of all we want to draw some conclusions about the function's behaviour at 
 \end{equation*}
 \end{lemma}
 \begin{proof}
-	Let $0 < x < 1$. We take the logarithm of $\zeta$'s Euler product representation and use the power series expansion for the logarithm
+	Let $0 < x < 1$. Taking the logarithm of $\zeta$'s Euler product representation and using the power series expansion for the logarithm yields
 \begin{equation*}
 	\log\cbr{\frac{1}{1 - x}} = -\log(1 + (-x)) = \sum _{m = 1} ^\infty \cbr{\frac{x^m}{m}}.
 \end{equation*}
@@ -24,7 +24,7 @@ First of all we want to draw some conclusions about the function's behaviour at 
 	\log(\zeta(s)) 
 		&= \log\cbr{\prod _p \frac{1}{1 - p^{-s}}} \\
 		&= \sum _p \log\cbr{\frac{1}{1 - p^{-s}}}
-		= \sum _{p,m} \frac{p^{-ms}}{m} = \sum _{n=1} ^{\infty} c_n n^{-s}
+		= \sum _{p,m} \frac{p^{-ms}}{m} = \sum _{n=1} ^{\infty} c_n n^{-s},
 \end{aligned}
 \end{equation*}
 	where
@@ -37,7 +37,6 @@ First of all we want to draw some conclusions about the function's behaviour at 
         \end{array}
 	\right.
 \end{equation*}
-
 	By analytic continuation this also holds for $s \in \field{C}$ with $\sigma > 1$. In particular $\log(\zeta(s))$ is well defined as $\zeta(s) \neq 0$ for $\sigma > 1$.
 \end{proof}
 
@@ -49,11 +48,11 @@ First of all we want to draw some conclusions about the function's behaviour at 
 \end{equation*}
 \end{lemma}
 \begin{proof}
-	With the addition theorem
+	The application of the well known trigonometric identity
 \begin{equation*}
 	\cos(\theta)^2 = \frac{1}{2}(1 + \cos(2 \theta))
 \end{equation*}
-	we find
+	immediatlely gives
 \begin{equation*}
 	2(1 + \cos(\theta))^2 = 2 + 4 \cos(\theta) + 2 \cos(\theta)^2 = 3 + 4 \cos(\theta) + \cos(2 \theta) \geq 0.
 \end{equation*}
@@ -67,7 +66,7 @@ First of all we want to draw some conclusions about the function's behaviour at 
 \end{equation*}
 \end{corollary}
 \begin{proof}
-	We have
+	We write
 \begin{equation*}
 \begin{aligned}	
 	\Re(n^{-s}) 
@@ -80,7 +79,7 @@ First of all we want to draw some conclusions about the function's behaviour at 
 \begin{equation*}
 	\Re(\log(r e^{i \theta}) = \Re(\log(r) + i\theta + k2i\pi) = \log(r) = \log(\abs{r e^{i\theta}}).
 \end{equation*}
-	Therefore Lemma~\ref{lem:LogEulerProd} and Lemma~\ref{lem:CosAddTh} give us
+	Therefore Lemma~\ref{lem:LogEulerProd} and Lemma~\ref{lem:CosAddTh} directly give us our final result
 \begin{equation*}
 \begin{aligned}
 	\log(\abs{\zeta^3(\sigma) \zeta^4(\sigma + it) \zeta(\sigma + 2it)}) &= \\
@@ -120,7 +119,7 @@ First of all we want to draw some conclusions about the function's behaviour at 
 \begin{equation*}
 	 \lim\limits_{\sigma \to 1} \abs{\zeta(\sigma)^3 \zeta(\sigma + it_0)^4 \zeta(\sigma + 2it_0)} = 0.
 \end{equation*}
-	But this contradicts Corollary~\ref{cor:LogZeta} since $\log(x) < 0$ for all $x \in \field{R}_{>0}, x < 1$.
+	But this contradicts Corollary~\ref{cor:LogZeta} since $\log(x) < 0$ for all $x \in \cbr{0 , 1}$.
 \end{proof}
 
 
@@ -130,14 +129,14 @@ First of all we want to draw some conclusions about the function's behaviour at 
 \begin{proof}
 	This proof relies on the fact that the xi function (see Definition~\ref{def:XiDefinition}) satisfies the symmetry $\xi(s) = \xi(1 - s)$ (see Proposition~\ref{pro:XiIdentity}). This, and the fact that only $\zeta$ can produce zeros in $\xi$, immediately yields
 \begin{equation*}
-	\zeta(1 + it) \neq 0 \implies \xi(1 + it) \neq 0 \implies \xi(-it) \neq 0 \implies \zeta(-it) \neq 0.	
+	\zeta(1 + it) \neq 0 \implies \xi(1 + it) = \xi(-it) \neq 0 \implies \zeta(-it) \neq 0.	
 \end{equation*}
 	for all $t \in \field{R}$.
 \end{proof}
 
 
 \section{Estimates involving $\zeta$}
-We want to study the growth of $\zeta$, $\zeta'$ and $\zeta^{-1}$ in the half-plane $\sigma > 0$ in more detail in order to find good estimates which we will need later on for certain applications.
+We want to study the growth of $\zeta$, $\zeta'$ and $\zeta^{-1}$ in the half-plane $\sigma > 0$ in more detail in order to find good estimates for later applications.
 
 \begin{proposition}
 	There exists a sequence of entire functions $\fbr{\delta_n(s)} _{n = 1} ^\infty$ that satisfy the estimate $\abs{\delta_n(s)} \leq \frac{\abs{s}}{n^{\sigma + 1}}$ and such that
@@ -172,7 +171,7 @@ We want to study the growth of $\zeta$, $\zeta'$ and $\zeta^{-1}$ in the half-pl
 \begin{equation*}
 	\zeta(s) - \frac{1}{s - 1} = H(s),
 \end{equation*}
-	where $H(s) = \sum _{n = 1} ^\infty \delta_n(s)$ is holomorphic in the half plane $\sigma > 0$. 
+	where $H(s) = \sum _{n = 1} ^\infty \delta_n(s)$ is holomorphic in the half-plane $\sigma > 0$. 
 \end{corollary}
 \begin{proof}
 	We first assume that $\sigma > 1$. When $N \to \infty$ in formula~\ref{equ:SumDelta} we observe that by the estimate $\abs{\delta_n(s)} \leq \frac{\abs{s}}{n^{\sigma + 1}}$ we have uniform convergence of the series $\sum _{n = 1} ^\infty \delta_n(s)$ in any half plane $\sigma \geq \delta$ when $\delta > 0$. Since $\sigma > 1$ the series $\sum _{n = 1} ^{\infty} n^{-s}$ converges to $\zeta(s)$. This proves our assertion when $\sigma > 1$. The uniform convergence shows that $\sum _{n = 1} ^\infty \delta_n(s)$ is holomorphic when $\sigma > 0$ and thus shows that $\zeta$ is extendable to that half-plane and that the identity continues to hold there.
@@ -230,9 +229,14 @@ We want to study the growth of $\zeta$, $\zeta'$ and $\zeta^{-1}$ in the half-pl
 \begin{equation*}
 	\abs{\zeta(\sigma + it)} \geq \abs{\zeta(\sigma' + it)} - \abs{\zeta(\sigma' + it) - \zeta(\sigma + it)},
 \end{equation*}
-	and an application of the mean value theorem, together with the estimates for $\zeta'$, give
+	and combined with the previous estimate~(\ref{equ:ZetaEst2}) for $\zeta'$ we obtain
 \begin{equation*}
-	\abs{\zeta(\sigma' + it) - \zeta(\sigma + it)} \leq c'' \abs{\sigma' - \sigma} \abs{t}^{\eps} \leq c''(\sigma' - 1)\abs{t}^{\eps}.
+\begin{aligned}	
+	\abs{\zeta(\sigma' + it) - \zeta(\sigma + it)} = \abs{\int _\sigma ^{\sigma'} \zeta'(x + it) dx}
+	&\leq \int _\sigma ^{\sigma'} \abs{\zeta'(x + it)} dx \\ 
+	&\leq c'' (\sigma' - \sigma) \abs{t}^{\eps} \\
+	&\leq c''(\sigma' - 1)\abs{t}^{\eps}.
+\end{aligned}
 \end{equation*}
 	These observations, together with our result above where we set $\sigma = \sigma'$, show that
 \begin{equation*}
@@ -250,9 +254,9 @@ We want to study the growth of $\zeta$, $\zeta'$ and $\zeta^{-1}$ in the half-pl
 \end{proof}
 
 
-\begin{lemma}
+\begin{corollary}\label{cor:ZetaQuotEst}
 	For every $\eta > 0$ we have $\abs{\frac{\zeta'(s)}{\zeta(s)}} \leq c_\eta \abs{t}^\eta$ for $c_\eta \in \field{R}_{> 0}$ if $\sigma \geq 1$ and $\abs{t} \geq 1$.
-\end{lemma}
+\end{corollary}
 \begin{proof}
-	
+	This estimate combining the growth of $\zeta'$ shown in Proposition and the estimate for $\frac{1}{\zeta}$ of Proposition we immediately receive our desired estimate.
 \end{proof}
