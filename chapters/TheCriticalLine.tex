@@ -32,7 +32,7 @@ In this chapter we will introduce the theta function, define the xi function and
 	is absolutely convergent in $a < \sigma < b$. Then f is recoverable via the inverse Mellin transform from its Mellin transform.
 \end{theorem}
 \begin{proof}
-	This theorem follows from the inversion formula for the Laplace transform and the proof can for example be found in $\cite{McLachlan1953}$.
+	This theorem follows from the inversion formula for the Laplace transform and the proof can, for example, be found in $\cite{McLachlan1953}$.
 \end{proof}
 
 
@@ -77,11 +77,20 @@ In this chapter we will introduce the theta function, define the xi function and
 	&\vartheta(x) = \sum _{n = -\infty} ^{\infty} e^{-\pi n^2 x}
 \end{aligned}
 \end{equation*}
-	is known as a version of the renowned "theta" function. For further references we also introduce the auxiliary function
+	is known as a version of the renowned "theta" function. For further references we also introduce two auxiliary functions
 \begin{equation*}
-	\omega(x) = \frac{1}{2}\cbr{\vartheta(x) - 1} = \sum _{n = 1} ^{\infty} e^{-\pi n^2 x}.
+	\omega(x) = \frac{1}{2}\cbr{\vartheta(x) - 1} = \sum _{n = 1} ^{\infty} e^{-\pi n^2 x}
+\end{equation*}
+	and
+\begin{equation*}
+	\theta(x) = \omega(x) - \frac{1}{2 \sqrt{t}} = \sum _{n = 1} ^{\infty} e^{-\pi n^2 x} - \frac{1}{2 \sqrt{t}}.
 \end{equation*}
 \end{definition}
+
+
+\begin{remark}
+	It is known that the well-behaved monotonically increasing function $\theta$ is defined for $0 \leq x < \infty$.
+\end{remark}
 
 
 \begin{proposition}
@@ -192,11 +201,11 @@ In this chapter we will introduce the theta function, define the xi function and
 \begin{lemma}
 	We have the identity
 \begin{equation*}
-	\vartheta(x) = \frac{1}{\sqrt{x}} \vartheta(\frac{1}{x}).
+	\vartheta(x) = \frac{1}{\sqrt{x}} \vartheta(\frac{1}{x})
 \end{equation*}
 \end{lemma}
 \begin{proof}
-	The change of variables $y \to \sqrt{t} y$ shows that the Fourier transform of the function $f(y) = e^{-\pi x y^2}$ is $\hat{f}(\xi) = \frac{1}{\sqrt{\xi}} e^{-\frac{\pi \xi^2}{x}}$. Apparently $f(y)$ belongs to $\mathcal{F}_a$. Thus we may apply the Poisson summation formula to the pair $\cbr{f, \hat{f}}$ and we get
+	The change of variables $y \to \sqrt{t} y$ shows that the Fourier transform of the function $f(y) = e^{-\pi x y^2}$ is in fact $\hat{f}(\xi) = \frac{1}{\sqrt{\xi}} e^{-\frac{\pi \xi^2}{x}}$. Apparently $f(y)$ belongs to $\mathcal{F}_a$. Thus we may apply the Poisson summation formula to the pair $\cbr{f, \hat{f}}$ and we get
 \begin{equation*}
 	\vartheta(x) = \sum _{n = -\infty} ^\infty e^{-\pi x n^2} = \sum _{n = -\infty} ^\infty \frac{1}{\sqrt{x}} e^{-\frac{\pi \xi^2}{x}} = \frac{1}{\sqrt{x}} \vartheta(\frac{1}{x}).
 \end{equation*}
@@ -204,17 +213,28 @@ In this chapter we will introduce the theta function, define the xi function and
 
 
 \begin{corollary}\label{cor:ThetaIdentity}
-	We have the identity
+	We have the identities
 \begin{equation*}
 	\omega(x) = \frac{1}{\sqrt{x}} \omega\cbr{\frac{1}{x}} + \frac{1}{2\sqrt{x}} - \frac{1}{2}.
 \end{equation*}
+	and
+\begin{equation*}
+	\theta(x) = \frac{1}{\sqrt{x}} \theta(\frac{1}{x}).
+\end{equation*}
 \end{corollary}
 \begin{proof}
-	We write
+	For the first identity we have
 \begin{equation*}
 	2 \omega(x) + 1 = \vartheta(x) = \frac{1}{\sqrt{x}} \vartheta(\frac{1}{x}) = \frac{1}{\sqrt{x}} \cbr{2 \omega(\frac{1}{x}) + 1}
 \end{equation*}
-	and solve the equation for $\omega(x)$.
+	and just solve the equation for $\omega(x)$. The second identity follows directly from the first by writing
+\begin{equation*}
+\begin{aligned}	
+	\theta(x) = \omega(x) - \frac{1}{2 \sqrt{x}} 
+	&= \frac{1}{\sqrt{x}} \omega\cbr{\frac{1}{x}} - \frac{1}{2} \\ 
+	&= \frac{1}{\sqrt{x}} \cbr{\omega\cbr{\frac{1}{x}} - \frac{\sqrt{x}}{2}} = \frac{1}{\sqrt{x}} \theta(x).
+\end{aligned}
+\end{equation*}
 \end{proof}
 
 
@@ -250,21 +270,21 @@ In this chapter we will introduce the theta function, define the xi function and
 \begin{proof}
 	We observe that if $\sigma > 0$ and $n \geq 1$ we have
 \begin{equation*}
-	\int _0 ^\infty x^{\frac{1}{2} s - 1} e^{-n^2 \pi x} dx = \frac{\Gamma(\frac{1}{2}s)}{n^s\pi^{\frac{1}{2}s}}.
+	\int _0 ^\infty x^{\frac{1}{2} s - 1} e^{-n^2 \pi x} dx = n^{-s} \pi^{-\frac{1}{2}s}\Gamma(\frac{1}{2}s).
 \end{equation*}
 	Hence if $\sigma > 1$ we get
 \begin{equation*}
 \begin{aligned}
-	\frac{\Gamma(\frac{1}{2}s) \zeta(s)}{\pi^{\frac{1}{2}s}} 
+	\xi^*(s) = \pi^{-\frac{1}{2}s} \Gamma(\frac{1}{2}s) \zeta(s) 
 		&= \sum _{n = 1} ^\infty \int _0 ^\infty x^{\frac{1}{2} s - 1} e^{-n^2 \pi x} dx \\
 		&= \int _0 ^\infty x^{\frac{1}{2} s - 1} \sum _{n = 1} ^\infty e^{-n^2 \pi x} dx
 		= \int _0 ^\infty x^{\frac{1}{2} s - 1} \omega(x) dx,
 \end{aligned}
 \end{equation*}
-	where we can interchange sum and integral because of absolute convergence. We use the Corollary~\ref{cor:ThetaIdentity} and can now write
+	where we can interchange sum and integral because of absolute convergence. We now use Corollary~\ref{cor:ThetaIdentity} and may now write
 \begin{equation*}
 \begin{aligned}	
-	\pi^{-\frac{1}{2}s}\Gamma(\frac{1}{2}s)\zeta(s) &= \\
+	\xi^*(s) &= \\
 		\int _0 ^1 x^{\frac{1}{2} s - 1} \omega(x) dx  + \int _1 ^\infty x^{\frac{1}{2} s - 1} \omega(x) dx &= \\
 		\int _0 ^1 x^{\frac{1}{2} s - 1} \cbr{\frac{1}{\sqrt{x}} \omega\cbr{\frac{1}{x}} + \frac{1}{2\sqrt{x}} - \frac{1}{2}} dx  + \int _1 ^\infty x^{\frac{1}{2} s - 1} \omega(x) dx &= \\
 		\frac{1}{s - 1} + \frac{1}{s} + \int _0 ^1 x^{\frac{1}{2} s - \frac{3}{2}} \omega(x) dx + \int _1 ^\infty x^{\frac{1}{2} s - 1} \omega(x) dx &= \\
@@ -273,12 +293,20 @@ In this chapter we will introduce the theta function, define the xi function and
 \end{equation*}
 	Since the function $\omega$ has exponential decay at infinity the last integral defines an entire function. Thus the formula holds by analytic continuation for all $s \in \field{C}$ with simple poles at $s = 0$ and $s = 1$. The right-hand side remains unchanged when $s$ is replaced by $1 - s$. Hence we finally get
 \begin{equation*}
-\begin{aligned}	
-	\xi(s) 
-		&= \frac{1}{2}s(1 - s) \pi^{-\frac{1}{2}s}\Gamma(\frac{1}{2}s)\zeta(s) \\
-		&= \frac{1}{2}(1 - s)s \pi^{-\frac{1}{2} + \frac{1}{2}s} \Gamma(\frac{1}{2} - \frac{1}{2}s)\zeta(1 - s) = \xi(1 - s).
-\end{aligned}
+	\xi(s) = \frac{1}{2}s(1 - s) \xi^*(s) = \frac{1}{2}(1 - s)s \xi^*(1 - s) = \xi(1 - s).
 \end{equation*}
+\end{proof}
+
+
+\begin{lemma}\label{lem:XiMellin}
+	Let $f(x) = 2 \theta(x^2)$. For $0 < \sigma < 1$ we have
+\begin{equation*}
+	\xi^*(s) = \int _0 ^\infty x^{s - 1} f(x) dx,
+\end{equation*}
+	hence $\xi^*(s) = \fbr{\mathcal{M} f}$ and therefore by Mellin's inversion formula $f = \fbr{\mathcal{M}^{-1} \xi^*}$ whenever $0 < \sigma < 1$.
+\end{lemma}
+\begin{proof}
+	This formula is essentially the same as stated in \cite{Edwards1974} [p. 213] after the substitutions $u \to \frac{1}{x}$.
 \end{proof}
 
 
@@ -309,17 +337,17 @@ In this chapter we will introduce the theta function, define the xi function and
 	$\Xi$ is a real function.
 \end{lemma}
 \begin{proof}
-	We first recall Proposition~\ref{pro:XiIdentity} which immediately yields the invariant form
+	We first recall Corollary~\ref{cor:ThetaIdentity} which immediately yields the symmetric form
 \begin{equation*}
-	x^{-\frac{1}{4}} \vartheta(\frac{1}{x}) = x^{\frac{1}{4}} \vartheta(x).
+	x^{-\frac{1}{4}} \theta(\frac{1}{x}) = x^{\frac{1}{4}} \theta(x).
 \end{equation*}
-	Plugging this into the final integral form of the functional equation of $\xi^*$ from Proposition~\ref{pro:XiIdentity} gives
+	Plugging this into the final integral form of the functional equation of $\xi^*$ from Proposition~\ref{pro:XiIdentity} for $0 < \sigma < 1$ gives
 \begin{equation*}
-	\xi^*(s) = \int _0 ^\infty x^{\frac{s - \frac{1}{2}}{2}} x^{\frac{1}{4} - 1} \omega(x) dx = \int _0 ^\infty x^{-\frac{s - \frac{1}{2}}{2}} x^{\frac{1}{4} - 1} \omega(x) dx.
+	\xi^*(s) = \int _0 ^\infty x^{\frac{s - \frac{1}{2}}{2}} x^{\frac{1}{4} - 1} \omega(x) dx = \int _0 ^\infty x^{-\frac{s - \frac{1}{2}}{2}} x^{\frac{1}{4} - 1} \theta(x) dx.
 \end{equation*}
 	By addition of the two sides we obtain
 \begin{equation*}
-	\xi^*(s) = \int _0 ^\infty \cosh\cbr{\frac{1}{2} \cbr{s - \frac{1}{2}} \log(x)} x^{\frac{1}{4} - 1} \omega(x) dx.
+	\xi^*(s) = \int _0 ^\infty \cosh\cbr{\frac{1}{2} \cbr{s - \frac{1}{2}} \log(x)} x^{\frac{1}{4} - 1} \theta(x) dx.
 \end{equation*}
 	Further, by applying the addition theorem
 \begin{equation*}
@@ -329,8 +357,8 @@ In this chapter we will introduce the theta function, define the xi function and
 \begin{equation*}
 \begin{aligned}	
 	\xi^*(s) 
-		&= \int _0 ^\infty \cosh\cbr{\frac{1}{2} \cbr{\sigma - \frac{1}{2}} \log(x)} \cos\cbr{\frac{t}{2} \log(x)} x^{\frac{1}{4} - 1} \omega(x) dx \\
-		&+ \int _0 ^\infty \sinh\cbr{\frac{1}{2} \cbr{\sigma - \frac{1}{2}} \log(x)} \sin\cbr{\frac{t}{2} \log(x)} x^{\frac{1}{4} - 1} \omega(x) dx.
+		&= \int _0 ^\infty \cosh\cbr{\frac{1}{2} \cbr{\sigma - \frac{1}{2}} \log(x)} \cos\cbr{\frac{t}{2} \log(x)} x^{\frac{1}{4} - 1} \theta(x) dx \\
+		&+ \int _0 ^\infty \sinh\cbr{\frac{1}{2} \cbr{\sigma - \frac{1}{2}} \log(x)} \sin\cbr{\frac{t}{2} \log(x)} x^{\frac{1}{4} - 1} \theta(x) dx.
 \end{aligned}
 \end{equation*}
 	We now in fact observe that
@@ -355,7 +383,7 @@ In this chapter we will introduce the theta function, define the xi function and
 \begin{equation*}
 	\Phi(x) = \int _0 ^{\infty} f(t) \Xi(t) \cos(xt) dt.	
 \end{equation*}
-	With the substitution $y = e^x$ we get
+	By the substitution $y = e^x$ we get
 \begin{equation*}
 \begin{aligned}
 	\Phi(x) 
@@ -364,7 +392,7 @@ In this chapter we will introduce the theta function, define the xi function and
 		&= \frac{1}{2} \int _{-\infty} ^\infty \lambda(it) \lambda(-it) \xi(\frac{1}{2} + it) y^{it} dt
 \end{aligned}
 \end{equation*}
-	With the substitution $s = \frac{1}{2} + it$ we get
+	Again the substitution $s = \frac{1}{2} + it$ gives
 \begin{equation*}
 \begin{aligned}
 	\Phi(x) 
@@ -372,23 +400,17 @@ In this chapter we will introduce the theta function, define the xi function and
 		&= \frac{1}{2 i\sqrt{y}} \int _{\frac{1}{2} -\infty} ^{\frac{1}{2} + \infty} \lambda(s - \frac{1}{2}) \lambda(\frac{1}{2} - s) (s - 1) \Gamma(1 + \frac{1}{2}s) \pi ^{-\frac{1}{2} s} \zeta(s) y^{s} ds.
 \end{aligned}
 \end{equation*}
-	With the substitution $\lambda(s) = \frac{1}{s + \frac{1}{2}}$ we get
+	Finally setting $\lambda(s) = \frac{1}{s + \frac{1}{2}}$ together with Lemma~\ref{lem:XiMellin} yields 
 \begin{equation*}
 \begin{aligned}
 	\Phi(x) 
 		&= -\frac{1}{2 i\sqrt{y}} \int _{\frac{1}{2} -\infty} ^{\frac{1}{2} + \infty} \frac{1}{s} \Gamma(1 + \frac{1}{2} s) \pi ^{-\frac{1}{2} s} \zeta(s) y^{s} ds \\
-		&= -\frac{1}{4 i\sqrt{y}} \int _{\frac{1}{2} -\infty} ^{\frac{1}{2} + \infty} \Gamma(\frac{1}{2} s) \pi ^{-\frac{1}{2} s} \zeta(s) y^{s} ds.
+		&= -\frac{1}{4 i\sqrt{y}} \int _{\frac{1}{2} -\infty} ^{\frac{1}{2} + \infty} \Gamma(\frac{1}{2} s) \pi ^{-\frac{1}{2} s} \zeta(s) y^{s} ds \\
+		&= -\frac{\pi}{2 \sqrt{y}} \cbr{\frac{1}{2 i \pi} \int _{\frac{1}{2} -\infty} ^{\frac{1}{2} + \infty} \xi^*(s) \cbr{\frac{1}{y}}^{-s} ds} \\
+		&= -\frac{\pi}{\sqrt{y}} \omega\cbr{\frac{1}{y^2}} + \frac{1}{2} \pi \sqrt{y}.
 \end{aligned}
 \end{equation*}
-	With the substitution $y = \frac{1}{z}$ and $s = 2w$ we finally get
-\begin{equation*}
-\begin{aligned}
-	\Phi(x) 
-		&= -\frac{\pi \sqrt{z}}{2 i \pi} \int _{\frac{1}{4} -\infty} ^{\frac{1}{4} + \infty} \Gamma(w) \pi ^{-w} \zeta(2w) \cbr{\frac{1}{z^2}}^{-w} dw \\
-		&= -\frac{\pi}{\sqrt{z}} \omega\cbr{\frac{1}{z^2}} + \frac{1}{2} \pi z.
-\end{aligned}
-\end{equation*}
-	After re-substitution we receive the identity we wanted to show.
+	After re-substituting we receive the identity we wanted to show.
 \end{proof}
 
 
@@ -412,7 +434,7 @@ In this chapter we will introduce the theta function, define the xi function and
 		&= \frac{(-1)^{n} \cos(\frac{1}{2} \alpha)}{2^{2n - 1}} - 2 \cbr{\frac{d}{d\alpha}}^{2n}e^{\frac{1}{2} i \alpha} \cbr{\frac{1}{2} + \omega(e^{2 i \alpha})}.
 \end{aligned}
 \end{equation*}
-	In order to show that the last term vanishes as $\alpha \to 0$ for every fixed $n$ we use the Corollary~\ref{cor:ThetaIdentity} and write
+	In order to show that the last term vanishes as $\alpha \to 0$ for every fixed $n$ we use Corollary~\ref{cor:ThetaIdentity} and write
 \begin{equation*}
 \begin{aligned}
 	\omega(i + \delta) = \sum _{n=1} ^{\infty} e^{-n^2 \pi (i + \delta)}
