@@ -31,7 +31,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \begin{lemma}
 	We have
 \begin{equation*}
-	\psi(x) = \sum _{p < x} \bbr{\frac{\log(x)}{\log(p)}} \log(p).
+	\psi(x) = \sum _{p \leq x} \bbr{\frac{\log(x)}{\log(p)}} \log(p).
 \end{equation*}
 	where $\bbr{u}$ denotes the greatest integer $\leq u$.
 \end{lemma}
@@ -71,7 +71,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \end{equation*}
 	At first we can make the crude estimate
 \begin{equation*}
-	\psi(x) = \sum _{p < x} \bbr{\frac{\log(x)}{\log(p)}} \log(p) \leq \sum _{p < x} \frac{\log(x)}{\log(p)} \log(p) = \pi(x) \log(x)
+	\psi(x) = \sum _{p \leq x} \bbr{\frac{\log(x)}{\log(p)}} \log(p) \leq \sum _{p \leq x} \frac{\log(x)}{\log(p)} \log(p) = \pi(x) \log(x)
 \end{equation*}
 	and dividing by $x$ yields
 \begin{equation*}
@@ -111,9 +111,9 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \begin{proof}
 	It suffices to show that $\psi(x) \sim x$. This can easily be seen from the fact that if $\alpha < 1 < \beta$, then
 \begin{equation*}
-	\frac{1}{(1 - \alpha) x} \int _{\alpha x} \psi(u) du \leq \psi(x) \leq \frac{1}{(\beta - 1) x} \int _{x} \psi(\beta u) du.
+	\frac{1}{(1 - \alpha) x} \int _{\alpha x} ^x \psi(u) du \leq \psi(x) \leq \frac{1}{(\beta - 1) x} \int _{x} ^{\beta x} \psi(u) du.
 \end{equation*}
-	The proof of this double inequality relies simply on the fact that $\phi$ is increasing. Consequently we find that
+	The proof of this double inequality relies simply on the fact that $\psi$ is increasing. Consequently we find that
 \begin{equation*}
 	\psi(x) \leq \frac{1}{(\beta - 1)x} \cbr{\psi_1(\beta x) - \psi_1(x)},
 \end{equation*}
@@ -161,8 +161,8 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 	\frac{1}{2 \pi i} = \int _{c - i \infty} ^{c + i \infty} \frac{a^s}{s(s + 1)} ds = 
 		\left\{
     		\begin{array}{ll}
-        		0, &\text{if } 0 \leq a \leq 1,\\
-        		1 - \frac{1}{a}, &\text{if } 1 < a.
+        		0, &\text{if } 0 \leq a < 1,\\
+        		1 - \frac{1}{a}, &\text{if } 1 \leq a.
         	\end{array}
 		\right.
 \end{equation*}
@@ -287,7 +287,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \end{proof}
 
 
-\begin{theorem}[Prime number theorem]
+\begin{theorem}
 	We have that $\psi_1(x) \sim \frac{x^2}{2}$ as $x \to \infty$.
 \end{theorem}
 \begin{proof}
@@ -384,5 +384,5 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \begin{equation*}
 	\abs{\frac{2 \psi_1(x)}{x^2} - 1} \leq 4 \eps.
 \end{equation*}
-	This concludes the proof that $\psi_1(x) \sim \frac{x^2}{2}$ as $x \to \infty$.
+	This concludes the proof that $\psi_1(x) \sim \frac{x^2}{2}$ as $x \to \infty$. Therefore we have finally proved the prime number theorem.
 \end{proof}
