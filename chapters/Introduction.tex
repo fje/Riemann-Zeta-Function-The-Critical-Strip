@@ -260,3 +260,69 @@ We want to study the growth of $\zeta$, $\zeta'$ and $\zeta^{-1}$ in the half-pl
 \begin{proof}
 	Our desired result immediately follows from combining the previous estimates for $\zeta'$ and $\frac{1}{\zeta}$.
 \end{proof}
+
+
+\section{Mellin Transform}
+
+
+\begin{definition}
+	The function defined by
+\begin{equation*}
+	\fbr{\mathcal{M}f}(s) = \int _0 ^\infty x^{s - 1} f(x) dx.
+\end{equation*}
+	is called the Mellin transform of the function $f$. Conversely
+\begin{equation*}
+	\fbr{\mathcal{M}^{-1} \varphi}(x) = \frac{1}{2 \pi i} \int _{c - i \infty} ^{c + i \infty} x^{-s} \varphi(s) ds.
+\end{equation*}
+	defines the inverse Mellin transform.
+\end{definition}
+
+
+\begin{theorem}[Mellin's Inversion Formula]
+	Let $\varphi(s)$ be analytic in $a < \sigma, c < b$ and $\varphi(s) \to 0$ uniformly as $t \to \pm\infty$ with its integral along the line $\sigma = c$ converging absolutely. Then if
+\begin{equation*}
+	f(x) = \fbr{\mathcal{M}^{-1} \varphi} = \frac{1}{2 \pi i} \int _{c - i \infty} ^{c + \infty} x^{-s} \varphi(s) ds
+\end{equation*}
+	we have that
+\begin{equation*}
+	\varphi(s) = \fbr{\mathcal{M} f} = \int _0 ^\infty x^{s - 1} f(x) dx.
+\end{equation*}
+	Conversely suppose $f$ is piecewise continuous on the positive real numbers and suppose the integral
+\begin{equation*}
+	\varphi(s) = \int _0 ^\infty x^{s - 1} f(x) dx
+\end{equation*}
+	is absolutely convergent in $a < \sigma < b$. Then f is recoverable via the inverse Mellin transform from its Mellin transform.
+\end{theorem}
+\begin{proof}
+	This theorem follows from the inversion formula for the Laplace transform and the proof can, for example, be found in $\cite{McLachlan1953}$.
+\end{proof}
+
+
+\section{The Poisson Summation Formula}
+
+
+\begin{definition}
+	For each $a > 0$ we define $\mathcal{F}_a$ by the space of all functions $f$ that satisfy the following two conditions:
+\begin{enumerate}
+	\item[(i)] The function $f$ is holomorphic on the horizontal strip
+		\begin{equation*}
+			S_a = \fbr{s \in \field{C} \colon \abs{t} < a}.
+		\end{equation*}
+	\item[(ii)] There exists a constant $A > 0$
+		\begin{equation*}
+			\abs{f(s)} \leq \frac{A}{1 + \sigma^2} \hsp \textit{ for all } \sigma \in \field{R}, \abs{y} < a.
+		\end{equation*}
+\end{enumerate}
+\end{definition}
+
+
+\begin{theorem}[Poisson Summation Formula]
+	For $f \in \mathcal{F}_a$, the Poisson summation may be stated as
+\begin{equation*}
+	\sum _{n = -\infty} ^\infty f(n) = \sum _{k = -\infty} ^\infty \hat{f}(k),
+\end{equation*}
+	where $\hat{f}$ is the Fourier transform of $f$.
+\end{theorem}
+\begin{proof}
+	The entire proof can be found in \cite{Stein2003}.
+\end{proof}
