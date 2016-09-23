@@ -5,14 +5,14 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 
 
 \begin{definition}
-	Let $\mathcal{P} = \fbr{p \in \field{N} \colon \; p \textit{ prime number}}$. We define the function
+	We define the function
 \begin{equation*}
 \begin{aligned}
-	&\pi \colon \field{R} \to \field{R}, \\
-	&\pi(x) = \abs{\fbr{p \in \mathcal{P}: p \leq x}}
+	&\pi \colon \field{R} \to \field{N}, \\
+	&\pi(x) = \sum _{p \leq x} 1,
 \end{aligned}
 \end{equation*}
-	as the prime number counting function.
+	as the prime number counting function summing over all primes $p \leq x$.
 \end{definition}
 
 
@@ -24,7 +24,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 	&\psi(x) = \sum _{p^m \leq x} \log(p),
 \end{aligned}
 \end{equation*}
-	for some prime number $p$ and positive integer $m \in \field{N}_{> 0}$ is often referred to as Tchebychev's psi function.
+	for some prime number $p$ and positive integer $m \in \field{N}_{> 0}$ is often referred to as Tchebychev's psi function summing over all primes $p$ and $m$ such that $p^m \leq x$.
 \end{definition}
 
 
@@ -79,7 +79,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \end{equation*}
 	This asymptotic condition $\psi(x) \sim x$ implies the first inequality. For the second inequality we fix $0 < \alpha < 1$ and note that
 \begin{equation*}
-	\psi(x) \geq \sum _{p \leq x} \log(p) \geq \sum _{x^\alpha < p < x} \log(p) \geq \cbr{\pi(x) - \pi(x^\alpha)} \log(x^\alpha).
+	\psi(x) \geq \sum _{p \leq x} \log(p) \geq \sum _{x^\alpha < p \leq x} \log(p) \geq \cbr{\pi(x) - \pi(x^\alpha)} \log(x^\alpha).
 \end{equation*}
 	and therefore
 \begin{equation*}
@@ -101,7 +101,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 	&\psi_1(x) = \sum _{p^m \leq x} \log(p),
 \end{aligned}
 \end{equation*}
-	is closely related to the $\psi$-function and more convenient to deal with.
+	is closely related to the $\psi$-function.
 \end{definition}
 
 
@@ -225,7 +225,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \begin{equation*}
 	f(s) = \frac{a^s}{s(s + 1)} = \frac{e^{s \beta}}{s(s + 1)}.
 \end{equation*}
-	Then $\res(f(s), 0) = 1$ and $\res(f(s), 1) = -\frac{1}{a}$. For $T > 0$, consider the path $\Gamma(T)$ shown in Figure. Now, we choose $T$ large enough that $0$ and $-1$ are contained in the interior of the contour $\Gamma(T)$. By the residue formula we get
+	Then $\res(f(s), 0) = 1$ and $\res(f(s), 1) = -\frac{1}{a}$. For $T > 0$, consider the path $\Gamma(T)$ shown in Figure~\ref{fig:ContourGamma}. Now, we choose $T$ large enough that $0$ and $-1$ are contained in the interior of the contour $\Gamma(T)$. By the residue formula we get
 \begin{equation*}
 	\frac{1}{2 \pi i} \int _{\Gamma(T)} f(s) ds = 1 - \frac{1}{a}.
 \end{equation*}
@@ -241,7 +241,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \begin{equation*}
 	\lim _{T \to \infty} \abs{\int _{C(T)} f(s) ds} \leq \frac{C}{T^2} 2 \pi T^2 = 0
 \end{equation*}
-	and the case where a $\geq$ is proved. If $0 < a \leq 1$ we consider the half circle lying to the right of $S(T)$. Noting there are no poles in the interior of the contour we can give a similar argument that the integral over the half circle vanishes for $T \to \infty$.
+	and the case where $a \geq 1$ is proved. If $0 < a \leq 1$ we consider the half circle lying to the right of $S(T)$. Noting there are no poles in the interior of the contour we can give a similar argument that the integral over the half circle vanishes for $T \to \infty$.
 \end{proof}
 
 
@@ -279,7 +279,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \begin{aligned}	
 	\frac{1}{2 \pi i} \int _{c - i\infty} ^{c + i \infty} \frac{x^(s + 1)}{s(s + 1)} \cbr{-\frac{\zeta'(s)}{\zeta(s)}} ds 
 		&= x \sum _{n = 1} ^\infty \Lambda(n) \frac{1}{2 \pi} \int _{c - i \infty} ^{c + i \infty} \frac{\cbr{\frac{x}{n}}^s}{s(s + 1)} ds \\
-		&= x \sum _{n = 1} ^\infty \Lambda(n) \cbr{1 - \frac{n}{x}} \\
+		&= x \sum _{n \leq x} \Lambda(n) \cbr{1 - \frac{n}{x}} \\
 		&= \psi_1(x),
 \end{aligned}
 \end{equation*}
@@ -316,31 +316,36 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 	
 	\node[right] at (2.5, -1.5) {$\gamma_1$};
 	\node[below] at (2.1, -1) {$\gamma_2$};
-	\node[left] at (1.8, 0) {$\gamma_3$};
+	\node[left] at (1.8, 0.6) {$\gamma_3$};
 	\node[above] at (2.1, 1) {$\gamma_4$};
 	\node[right] at (2.5, 1.5) {$\gamma_5$};
+	
+	\node[left] at (-0.5, 1) {$T$};
+	\node[left] at (1.8, 0) {$\delta$};
 	
 	\draw[xshift=0cm] (-3.3,0) node[circle,fill,inner sep=1.2pt](a){};	
 	\draw[xshift=0cm] (-0.5,0) node[circle,fill,inner sep=1.2pt](a){};
 	\draw[xshift=0cm] (2.5,0) node[circle,fill,inner sep=1.2pt](a){};
+	\draw[xshift=0cm] (-0.5, 1) node[circle,fill,inner sep=1.2pt](a){};
+	\draw[xshift=0cm] (1.8, 0) node[circle,fill,inner sep=1.2pt](a){};
 \end{tikzpicture}
 \caption{Three stages: the line $\sigma = c$, the contours $\gamma(T)$ and $\gamma(T, \delta)$}
-\label{fig:ContourGamma}
+\label{fig:ContourGamma2}
 \end{figure}
 	We first fix $c > 1$, say $c = 2$ and assume that $x$ is also fixed with $x \geq 2$. Let $F(s)$ denote the integrand
-\begin{equation*}
+\begin{equation}\label{equ:Cauchy}
 	F(s) = \frac{x^{s + 1}}{s(s + 1)} \cbr{-\frac{\zeta'(s)}{\zeta(s)}}.
-\end{equation*}
-	Now we deform the vertical line from $c - i \infty$ to $c + i \infty$ to the path shown in Figure~\ref{fig:ContourGamma}. Cauchy's theorem allows us to see that
+\end{equation}
+	Now we deform the vertical line from $\sigma = c$ to the path $\gamma(T)$ shown in Figure~\ref{fig:ContourGamma2} where $T \geq 3$. Cauchy's theorem allows us to see that
 \begin{equation*}
 	\frac{1}{2 \pi i} \int _{c - i \infty} ^{c + i \infty} F(s) ds = \frac{1}{2 \pi i} \int _{\gamma(T)} F(s) ds.
 \end{equation*}
-	Indeed we know on the basis of Proposition~\ref{pro:ZetaQuotInt} that $\abs{\frac{\zeta'(s)}{\zeta(s)}} \leq A\abs{t}^\eta$ for any fixed $\eta > 0$ whenever $\sigma \geq 1$ and $\abs{t} \geq 1$. Thus $\abs(F(s)) \leq A'\abs{t}^{-2 + \eta}$ in the two rectangles bounded by the line $(c - i \infty, c + i\infty)$ and $\gamma(T)$, and its decrease at infinity is rapid enough, the assertion is established.
+	Indeed we know on the basis of Proposition~\ref{pro:ZetaQuotInt} that $\abs{\frac{\zeta'(s)}{\zeta(s)}} \leq A\abs{t}^\eta$ for any fixed $\eta > 0$ whenever $\sigma \geq 1$ and $\abs{t} \geq 1$. Thus $\abs{F(s)} \leq A'\abs{t}^{-2 + \eta}$ in the two rectangles bounded by the line $\sigma = c$ and $\gamma(T)$, and its decrease at infinity is rapid enough, the assertion~(\ref{equ:Cauchy}) is established.
 	Next we pass from the contour $\gamma(T)$ to the contour $\gamma(T, \delta)$. For fixed T, we chose $\delta > 0$ small enough so that $\zeta$ has no zeros in the box
 \begin{equation*}
 	\fbr{s \in \field{C} \colon 1 - \delta \leq \sigma \leq 1, \abs{t} \leq T}.
 \end{equation*}
-	Such a choice can be made since $\zeta$ does not vanish on the line $\sigma = 1$. Now $F(s)$ has a simple pole at $s = 1$. In fact, by Corollary, we know that $\zeta(s) = \frac{1}{s - 1} + H(s)$, where $H(s)$ is regular near $s = 1$. Hence $-\frac{\zeta'(s)}{\zeta(s)} =\frac{1}{s - 1} + h(s)$, where $h(s)$ is holomorphic near $s = 1$, and so we have $\res(F(s), 1) = \frac{x^2}{2}$. As a result
+	Such a choice can be made since $\zeta$ does not vanish on the line $\sigma = 1$. Now $F(s)$ has a simple pole at $s = 1$. In fact, by Corollary~\ref{cor:ZetaCont}, we know that $\zeta(s) = \frac{1}{s - 1} + H(s)$, where $H(s)$ is regular near $s = 1$. Hence $-\frac{\zeta'(s)}{\zeta(s)} =\frac{1}{s - 1} + h(s)$, where $h(s)$ is holomorphic near $s = 1$, and so we have $\res(F(s), 1) = \frac{x^2}{2}$. As a result
 \begin{equation*}
 	\frac{1}{2 \pi i} \int _{\gamma(T)} F(s) ds = \frac{x^2}{2} + \frac{1}{2 \pi i} \int _{\gamma(T, \delta)} \frac{x^{s + 1}}{s(s + 1)} F(s) ds.
 \end{equation*}
@@ -350,21 +355,21 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \end{equation*}
 	and
 \begin{equation*}
-	\abs{\int _{\gamma_5} F(s) ds}\leq \frac{\eps}{2} x^2.
+	\abs{\int _{\gamma_5} F(s) ds}\leq \frac{\eps}{2} x^2,
 \end{equation*}
-	To see this, we first note that for $s \in \gamma_1$ one has
+	for $\eps > 0$. To see this, we first note that for $s \in \gamma_1$ one has
 \begin{equation*}
 	\abs{x^{1 + s}} = x^{1 + \sigma} = x^2.
 \end{equation*}
-	Then by proposition we have, for example, that $\abs{\frac{\zeta'(s)}{\zeta(s)}} \leq A \abs{t}^{\frac{1}{2}}$, so
+	Then by Proposition~\ref{pro:ZetaQuotInt} we have, for example, that $\abs{\frac{\zeta'(s)}{\zeta(s)}} \leq A \abs{t}^{\frac{1}{2}}$, so
 \begin{equation*}
-	\abs{\int _{\gamma_1} F(s) ds} \leq C x^2 \int _T ^\infty \frac{\abs{t}\frac{1}{2}}{t^2} dt.
+	\abs{\int _{\gamma_1} F(s) ds} \leq C x^2 \int _T ^\infty \frac{\abs{t}^\frac{1}{2}}{t^2} dt.
 \end{equation*}
-	Since the integral converges, we can make the right-hand side $\leq \eps \frac{x^2}{2}$ upon taking $T$ sufficiently large.The argument for the integral over $\gamma_5$ is the same. Having now fixed $T$, we choose $\delta$ appropriately small. On $\gamma_3$, note that
+	Since the integral converges, we can make the right-hand side $\leq \eps \frac{x^2}{2}$ upon taking $T$ sufficiently large. The argument for the integral over $\gamma_5$ is the same. Having now fixed $T$, we choose $\delta$ appropriately small. On $\gamma_3$, note that
 \begin{equation*}
 	\abs{x^{1 + s}} = x^{1 + 1 - \delta} = x^{2 - \delta},
 \end{equation*}
-	from which we conclude that there exists a constant $C_T$ (dependent on such $T$)such that
+	from which we conclude that there exists a constant $C_T$ (dependent on such $T$) such that
 \begin{equation*}
 	\abs{\int _{\gamma_3} F(s) ds} \leq C_T x^{2 - \delta}.
 \end{equation*}
