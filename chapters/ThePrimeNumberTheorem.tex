@@ -79,7 +79,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \end{equation*}
 	This asymptotic condition $\psi(x) \sim x$ implies the first inequality. For the second inequality we fix $0 < \alpha < 1$ and note that
 \begin{equation*}
-	\psi(x) \geq \sum _{p \leq x} \log(p) \geq \sum _{x^\alpha < p \leq x} \log(p) \geq \cbr{\pi(x) - \pi(x^\alpha)} \log(x^\alpha).
+	\psi(x) \geq \sum _{p \leq x} \log(p) \geq \sum _{x^\alpha < p \leq x} \log(p) \geq \cbr{\pi(x) - \pi(x^\alpha)} \log(x^\alpha),
 \end{equation*}
 	and therefore
 \begin{equation*}
@@ -277,7 +277,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 	This fact, together with Lemma~\ref{lem:ZetaInt} where $a = \frac{x}{n}$, gives
 \begin{equation*}
 \begin{aligned}	
-	\frac{1}{2 \pi i} \int _{c - i\infty} ^{c + i \infty} \frac{x^(s + 1)}{s(s + 1)} \cbr{-\frac{\zeta'(s)}{\zeta(s)}} ds 
+	\frac{1}{2 \pi i} \int _{c - i\infty} ^{c + i \infty} \frac{x^{s + 1}}{s(s + 1)} \cbr{-\frac{\zeta'(s)}{\zeta(s)}} ds 
 		&= x \sum _{n = 1} ^\infty \Lambda(n) \frac{1}{2 \pi} \int _{c - i \infty} ^{c + i \infty} \frac{\cbr{\frac{x}{n}}^s}{s(s + 1)} ds \\
 		&= x \sum _{n \leq x} \Lambda(n) \cbr{1 - \frac{n}{x}} \\
 		&= \psi_1(x),
