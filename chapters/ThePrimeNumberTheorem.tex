@@ -140,7 +140,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \begin{lemma}
 	For $\sigma > 1$ we have
 \begin{equation*}
-	\frac{\zeta'(s)}{\zeta(s)} = \sum _{n = 1} ^\infty \frac{\Lambda(n)}{n^s}.
+	-\frac{\zeta'(s)}{\zeta(s)} = \sum _{n = 1} ^\infty \frac{\Lambda(n)}{n^s}.
 \end{equation*}
 \end{lemma}
 \begin{proof}
@@ -278,7 +278,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \begin{equation*}
 \begin{aligned}	
 	\frac{1}{2 \pi i} \int _{c - i\infty} ^{c + i \infty} \frac{x^{s + 1}}{s(s + 1)} \cbr{-\frac{\zeta'(s)}{\zeta(s)}} ds 
-		&= x \sum _{n = 1} ^\infty \Lambda(n) \frac{1}{2 \pi} \int _{c - i \infty} ^{c + i \infty} \frac{\cbr{\frac{x}{n}}^s}{s(s + 1)} ds \\
+		&= x \sum _{n = 1} ^\infty \Lambda(n) \frac{1}{2 \pi i} \int _{c - i \infty} ^{c + i \infty} \frac{\cbr{\frac{x}{n}}^s}{s(s + 1)} ds \\
 		&= x \sum _{n \leq x} \Lambda(n) \cbr{1 - \frac{n}{x}} \\
 		&= \psi_1(x),
 \end{aligned}
@@ -340,7 +340,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \begin{equation*}
 	\frac{1}{2 \pi i} \int _{c - i \infty} ^{c + i \infty} F(s) ds = \frac{1}{2 \pi i} \int _{\gamma(T)} F(s) ds.
 \end{equation*}
-	Indeed we know on the basis of Proposition~\ref{pro:ZetaQuotInt} that $\abs{\frac{\zeta'(s)}{\zeta(s)}} \leq A\abs{t}^\eta$ for any fixed $\eta > 0$ whenever $\sigma \geq 1$ and $\abs{t} \geq 1$. Thus $\abs{F(s)} \leq A'\abs{t}^{-2 + \eta}$ in the two rectangles bounded by the line $\sigma = c$ and $\gamma(T)$, and its decrease at infinity is rapid enough, the assertion~(\ref{equ:Cauchy}) is established.
+	Indeed, we know on the basis of Proposition~\ref{pro:ZetaQuotInt} that $\abs{\frac{\zeta'(s)}{\zeta(s)}} \leq A\abs{t}^\eta$ for any fixed $\eta > 0$ whenever $\sigma \geq 1$ and $\abs{t} \geq 1$. Thus $\abs{F(s)} \leq A'\abs{t}^{-2 + \eta}$ in the two rectangles bounded by the line $\sigma = c$ and $\gamma(T)$, and its decrease at infinity is rapid enough, the assertion~(\ref{equ:Cauchy}) is established.
 	Next we pass from the contour $\gamma(T)$ to the contour $\gamma(T, \delta)$. For fixed T, we chose $\delta > 0$ small enough so that $\zeta$ has no zeros in the box
 \begin{equation*}
 	\fbr{s \in \field{C} \colon 1 - \delta \leq \sigma \leq 1, \abs{t} \leq T}.

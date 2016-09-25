@@ -29,10 +29,10 @@ In this chapter we will introduce the theta function, define the xi function and
 
 
 \begin{proposition}
-	If $f(x) = e^{-\pi x^2}$ then $f(x) = \hat{f}(\xi)$, where $\hat{f}$ is the Fourier transform of $f$ or more formally
-\begin{equation*}
+	If $f(x) = e^{-\pi x^2}$ then $f(x) = \hat{f}(\xi)$, where $\hat{f}$ is the Fourier transform of $f$, or more formally
+\begin{equation}\label{equ:FourierSame}
 		\int _{-\infty} ^\infty e^{-\pi x^2} e^{-2 \pi i x \xi} dx = e^{-\pi \xi^2}.
-\end{equation*}
+\end{equation}
 \end{proposition}
 \begin{proof}
 \begin{figure}[!htb]
@@ -115,9 +115,13 @@ In this chapter we will introduce the theta function, define the xi function and
 \end{equation*}
 	For the integral over $\gamma_{2_+}$ for a fixed $\xi$ we have
 \begin{equation*}
-	\lim _{R \to \infty} \int _0 ^\xi f(R + i y) i dy = \int _0 ^\xi e^{-\pi (R^2 + 2iRy - y^2)} i dy = 0.
+\begin{aligned}	
+	\lim _{R \to \infty} I(R) 
+	&= \lim _{R \to \infty} \int _0 ^\xi f(R + i y) i dy \\
+	&= \lim _{R \to \infty} \int _0 ^\xi e^{-\pi (R^2 + 2iRy - y^2)} i dy = 0,
+\end{aligned}
 \end{equation*}
-	We may estimate it by
+	since we may estimate it by
 \begin{equation*}
 	\abs{I(R)} \leq Ce^{-\pi R^2}.
 \end{equation*}
@@ -134,13 +138,13 @@ In this chapter we will introduce the theta function, define the xi function and
 
 
 \begin{lemma}
-	We have the identity
+	For $x > 0$ we have the identity
 \begin{equation*}
 	\vartheta(x) = \frac{1}{\sqrt{x}} \vartheta(\frac{1}{x}).
 \end{equation*}
 \end{lemma}
 \begin{proof}
-	The change of variables $y \to \sqrt{t} y$ shows that the Fourier transform of the function $f(y) = e^{-\pi x y^2}$ is in fact $\hat{f}(\xi) = \frac{1}{\sqrt{\xi}} e^{-\frac{\pi \xi^2}{x}}$. Apparently $f(y)$ belongs to $\mathcal{F}_a$. Thus we may apply the Poisson summation formula to the pair $\cbr{f, \hat{f}}$ and we get
+	The change of variables $x \to \sqrt{y} x$ in the integral formula~(\ref{equ:FourierSame}) shows that the Fourier transform of the function $f(x) = e^{-\pi y x^2}$ is in fact $\hat{f}(\xi) = \frac{1}{\sqrt{y}} e^{-\frac{\pi \xi^2}{y}}$. Apparently $f(x)$ belongs to $\mathcal{F}_a$. Thus we may apply the Poisson summation formula to the pair $\cbr{f, \hat{f}}$ and we get
 \begin{equation*}
 	\vartheta(x) = \sum _{n = -\infty} ^\infty e^{-\pi x n^2} = \sum _{n = -\infty} ^\infty \frac{1}{\sqrt{x}} e^{-\frac{\pi \xi^2}{x}} = \frac{1}{\sqrt{x}} \vartheta(\frac{1}{x}).
 \end{equation*}
@@ -203,9 +207,13 @@ In this chapter we will introduce the theta function, define the xi function and
 \end{equation*}
 \end{proposition}
 \begin{proof}
-	We observe that if $\sigma > 0$ and $n \geq 1$ we have
+	Let us recall the formula
 \begin{equation*}
-	\int _0 ^\infty x^{\frac{1}{2} s - 1} e^{-n^2 \pi x} dx = n^{-s} \pi^{-\frac{1}{2}s}\Gamma(\frac{1}{2}s).
+	\Gamma(\frac{1}{2}s) = \int _0 ^\infty e^{-y} y^{\frac{1}{2}s - 1} dy,
+\end{equation*}	
+	whenever $\sigma > 0$. We observe that if $n \geq 1$ and by substituting $y = x \pi n^2$ we may write
+\begin{equation*}
+	\int _0 ^\infty e^{-n^2 \pi x} x^{\frac{1}{2} s - 1} dx = n^{-s} \pi^{-\frac{1}{2}s}\Gamma(\frac{1}{2}s).
 \end{equation*}
 	Hence if $\sigma > 1$ we get
 \begin{equation*}
@@ -222,8 +230,8 @@ In this chapter we will introduce the theta function, define the xi function and
 	\xi^*(s) &= \\
 		\int _0 ^1 x^{\frac{1}{2} s - 1} \omega(x) dx  + \int _1 ^\infty x^{\frac{1}{2} s - 1} \omega(x) dx &= \\
 		\int _0 ^1 x^{\frac{1}{2} s - 1} \cbr{\frac{1}{\sqrt{x}} \omega\cbr{\frac{1}{x}} + \frac{1}{2\sqrt{x}} - \frac{1}{2}} dx  + \int _1 ^\infty x^{\frac{1}{2} s - 1} \omega(x) dx &= \\
-		\frac{1}{s - 1} + \frac{1}{s} + \int _0 ^1 x^{\frac{1}{2} s - \frac{3}{2}} \omega(x) dx + \int _1 ^\infty x^{\frac{1}{2} s - 1} \omega(x) dx &= \\
-		\frac{1}{s - 1} + \frac{1}{s} + \int _1 ^\infty \cbr{x^{-\frac{1}{2} s - \frac{1}{2}} + x^{\frac{1}{2} s - 1}} \omega(x) dx &.
+		\frac{1}{s - 1} - \frac{1}{s} + \int _0 ^1 x^{\frac{1}{2} s - \frac{3}{2}} \omega(x) dx + \int _1 ^\infty x^{\frac{1}{2} s - 1} \omega(x) dx &= \\
+		\frac{1}{s - 1} - \frac{1}{s} + \int _1 ^\infty \cbr{x^{-\frac{1}{2} s - \frac{1}{2}} + x^{\frac{1}{2} s - 1}} \omega(x) dx &.
 \end{aligned}
 \end{equation*}
 	Since the function $\omega$ has exponential decay at infinity the last integral defines an entire function. Thus the formula holds by analytic continuation for all $s \in \field{C}$ with simple poles at $s = 0$ and $s = 1$. The right-hand side remains unchanged when $s$ is replaced by $1 - s$. Hence we finally get
