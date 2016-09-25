@@ -98,7 +98,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \begin{equation*}
 \begin{aligned}
 	&\psi_1 \colon \field{R} \to \field{R}, \\
-	&\psi_1(x) = \sum _{p^m \leq x} \log(p),
+	&\psi_1(x) = \int _1 ^x \psi(u) du,
 \end{aligned}
 \end{equation*}
 	is closely related to the $\psi$-function.
@@ -150,18 +150,18 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \end{equation*}
 	Differentiating both expressions leads to
 \begin{equation*}
-	\frac{\zeta'(s)}{\zeta(s)} = \sum _{m,p} p^{-ms} \log(p) = \sum _{n = 1} ^\infty \frac{\Lambda(n)}{n^s}.
+	\frac{\zeta'(s)}{\zeta(s)} = -\sum _{m,p} p^{-ms} \log(p) = -\sum _{n = 1} ^\infty \frac{\Lambda(n)}{n^s}.
 \end{equation*}
 \end{proof}
 
 
 \begin{lemma}\label{lem:ZetaInt}
-	If $c > 0$, then
+	If $c > 0$ then
 \begin{equation*}
-	\frac{1}{2 \pi i} = \int _{c - i \infty} ^{c + i \infty} \frac{a^s}{s(s + 1)} ds = 
+	\frac{1}{2 \pi i} \int _{c - i \infty} ^{c + i \infty} \frac{a^s}{s(s + 1)} ds = 
 		\left\{
     		\begin{array}{ll}
-        		0, &\text{if } 0 \leq a < 1,\\
+        		0, &\text{if } 0 < a < 1,\\
         		1 - \frac{1}{a}, &\text{if } 1 \leq a.
         	\end{array}
 		\right.
@@ -225,7 +225,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \begin{equation*}
 	f(s) = \frac{a^s}{s(s + 1)} = \frac{e^{s \beta}}{s(s + 1)}.
 \end{equation*}
-	Then $\res(f(s), 0) = 1$ and $\res(f(s), 1) = -\frac{1}{a}$. For $T > 0$, consider the path $\Gamma(T)$ shown in Figure~\ref{fig:ContourGamma}. Now, we choose $T$ large enough that $0$ and $-1$ are contained in the interior of the contour $\Gamma(T)$. By the residue formula we get
+	Then $\res(f(s), 0) = 1$ and $\res(f(s), 1) = -\frac{1}{a}$. For $T > 0$, consider the path $\Gamma(T)$ shown in Figure~\ref{fig:ContourGamma}. Now, we choose $T$ large enough such that $0$ and $-1$ are contained in the interior of the contour $\Gamma(T)$. By the residue formula we get
 \begin{equation*}
 	\frac{1}{2 \pi i} \int _{\Gamma(T)} f(s) ds = 1 - \frac{1}{a}.
 \end{equation*}
@@ -239,9 +239,9 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \end{equation*}
 	and since $\sigma \leq c$ we also have the estimate $\abs{e^{\beta s}} \leq e^{\beta c}$. Therefore
 \begin{equation*}
-	\lim _{T \to \infty} \abs{\int _{C(T)} f(s) ds} \leq \frac{C}{T^2} 2 \pi T^2 = 0
+	\lim _{T \to \infty} \abs{\int _{C(T)} f(s) ds} \leq \frac{C}{T^2} 2 \pi T = 0
 \end{equation*}
-	and the case where $a \geq 1$ is proved. If $0 < a \leq 1$ we consider the half circle lying to the right of $S(T)$. Noting there are no poles in the interior of the contour we can give a similar argument that the integral over the half circle vanishes for $T \to \infty$.
+	and the case where $a \geq 1$ is proved. If $0 < a < 1$ we consider the half circle lying to the right of $S(T)$. Noting there are no poles in the interior of the contour we can give a similar argument that the integral over the half circle vanishes for $T \to \infty$.
 \end{proof}
 
 
