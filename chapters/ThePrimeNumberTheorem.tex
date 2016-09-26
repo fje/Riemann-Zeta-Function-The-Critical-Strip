@@ -336,16 +336,16 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \begin{equation*}
 	F(s) = \frac{x^{s + 1}}{s(s + 1)} \cbr{-\frac{\zeta'(s)}{\zeta(s)}}.
 \end{equation*}
-	Now, we deform the vertical line from $\sigma = c$ to the path $\gamma(T)$ shown in Figure~\ref{fig:ContourGamma2} where $T \geq 3$. Cauchy's theorem allows us to see that
+	Now, we deform the vertical line from $\sigma = c$ to the path $\gamma(T)$ shown in Figure~\ref{fig:ContourGamma2} where $T \geq 3$. Cauchy's integral theorem allows us to see that
 \begin{equation}\label{equ:Cauchy}
 	\frac{1}{2 \pi i} \int _{c - i \infty} ^{c + i \infty} F(s) ds = \frac{1}{2 \pi i} \int _{\gamma(T)} F(s) ds.
 \end{equation}
-	Indeed, we know on the basis of Proposition~\ref{pro:ZetaQuotInt} that $\abs{\frac{\zeta'(s)}{\zeta(s)}} \leq A\abs{t}^\eta$ for any fixed $\eta > 0$ whenever $\sigma \geq 1$ and $\abs{t} \geq 1$. Thus we have $\abs{F(s)} \leq A'\abs{t}^{-2 + \eta}$ in the two rectangles bounded by the line $\sigma = c$ and $\gamma(T)$. Furthermore $F$ is regular and its decrease at infinity is rapid enough such that the assertion~(\ref{equ:Cauchy}) is established.
+	Indeed, we know on the basis of Proposition~\ref{pro:ZetaQuotInt} that $\abs{\frac{\zeta'(s)}{\zeta(s)}} \leq A\abs{t}^\eta$ for any fixed $\eta > 0$ whenever $\sigma \geq 1$ and $\abs{t} \geq 1$. Thus we have $\abs{F(s)} \leq A'\abs{t}^{-2 + \eta}$ in the two rectangles bounded by the line $\sigma = c$ and $\gamma(T)$. Furthermore $F$ is regular and its decrease at infinity is rapid enough, hence the assertion~(\ref{equ:Cauchy}) is established.
 	Next we pass from the contour $\gamma(T)$ to the contour $\gamma(T, \delta)$. For fixed T, we chose $\delta > 0$ small enough so that $\zeta$ has no zeros in the box
 \begin{equation*}
 	\fbr{s \in \field{C} \colon 1 - \delta \leq \sigma \leq 1, \abs{t} \leq T}.
 \end{equation*}
-	Such a choice can be made since $\zeta$ does not vanish on the line $\sigma = 1$. Now $F(s)$ has a simple pole at $s = 1$. In fact, by Corollary~\ref{cor:ZetaCont}, we know that $\zeta(s) = \frac{1}{s - 1} + H(s)$, where $H(s)$ is regular near $s = 1$. Hence $-\frac{\zeta'(s)}{\zeta(s)} =\frac{1}{s - 1} + h(s)$, where $h(s)$ is holomorphic near $s = 1$, and so we have $\res(F(s), 1) = \frac{x^2}{2}$. As a result
+	Such a choice can be made since $\zeta$ does not vanish on the line $\sigma = 1$. Now $F(s)$ has a simple pole at $s = 1$. In fact, by Corollary~\ref{cor:ZetaCont}, we know that $\zeta(s) = \frac{1}{s - 1} + H(s)$, where $H(s)$ is regular near $s = 1$. Hence $-\frac{\zeta'(s)}{\zeta(s)} =\frac{1}{s - 1} + h(s)$, where $h(s)$ is holomorphic near $s = 1$, and so we have $\res(F(s), 1) = \frac{x^2}{2}$. As a result we receive
 \begin{equation*}
 	\frac{1}{2 \pi i} \int _{\gamma(T)} F(s) ds = \frac{x^2}{2} + \frac{1}{2 \pi i} \int _{\gamma(T, \delta)} \frac{x^{s + 1}}{s(s + 1)} F(s) ds.
 \end{equation*}
@@ -379,7 +379,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \end{equation*}
 	We conclude that there exist constants $C_T$ and $C'_T$ (possibly different from the others above) such that
 \begin{equation*}
-	\abs{\psi_1(x) - \frac{x^2}{2}} \leq \eps x^2 + C_T x^{2 - \delta} + C'_T \frac{x^2}{\log{x}}.
+	\abs{\psi_1(x) - \frac{x^2}{2}} \leq \eps x^2 + C_T x^{2 - \delta} + C'_T \frac{x^2}{\log(x)}.
 \end{equation*}
 	Dividing through by $\frac{x^2}{2}$, we see that
 \begin{equation*}
