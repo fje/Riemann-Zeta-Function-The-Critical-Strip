@@ -369,7 +369,7 @@ In this chapter we will introduce the theta function, define the xi function and
 	&= 2 \cos(\frac{1}{2} \alpha) - 2e^{\frac{1}{2} i \alpha} \cbr{\frac{1}{2} + \omega(e^{2 i \alpha})}.
 \end{aligned}
 \end{equation*}
-	Since $\zeta(\frac{1}{2} + it) = \mathcal{O}(t^A)$ and $\Xi(t) = \mathcal{O}(t^A e^{-\frac{1}{4} \pi t})$ and since $\cosh(\alpha t) = \mathcal{O}(e^{\alpha t})$, for $\alpha < \frac{1}{4} \pi$ we can interchange integral and differentiation according to the dominated convergence theorem and differentiate both sides with respect to $\alpha$ on both sides $2n$-times and get
+	Since $\zeta(\frac{1}{2} + it) = \mathcal{O}(t^A)$ and $\Xi(t) = \mathcal{O}(t^A e^{-\frac{1}{4} \pi t})$ and since $\cosh(\alpha t) = \mathcal{O}(e^{\alpha t})$, for $\alpha < \frac{1}{4} \pi$ we can interchange integral and differentiation according to the dominated convergence theorem and differentiate both sides with respect to $\alpha$ on both sides $2n$-times and receive
 \begin{equation*}
 \begin{aligned}	
 	\frac{2}{\pi} \int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n}
@@ -383,7 +383,7 @@ In this chapter we will introduce the theta function, define the xi function and
 	\omega(i + \delta) = \sum _{n=1} ^{\infty} e^{-n^2 \pi (i + \delta)}
 		&= \sum _{n=1} ^{\infty} (-1)^n e^{-n^2 \pi \delta} \\
 		&= 2 \omega(4 \delta) - \omega(\delta) \\
-		&= \frac{1}{\sqrt \delta} \omega\cbr{\frac{1}{4\delta}} - \frac{1}{\sqrt \delta} \omega\cbr{\frac{1}{4\delta}} - \frac{1}{2}.
+		&= \frac{1}{\sqrt \delta} \omega\cbr{\frac{1}{4\delta}} - \frac{1}{\sqrt \delta} \omega\cbr{\frac{1}{\delta}} - \frac{1}{2}.
 \end{aligned}
 \end{equation*}
 	Obviously along every route in an angle $\arg(x - i) < \frac{1}{2} \pi$ we have
@@ -392,7 +392,7 @@ In this chapter we will introduce the theta function, define the xi function and
 \end{equation*}
 	Therefore we have shown that
 \begin{equation*}
-	\lim _{\alpha \to \frac{1}{4} \pi} \frac{2}{\pi} \int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\alpha t) dt = \frac{(-1)^{n} \cos(\frac{1}{2} \alpha)}{2^{2n - 1}}.
+	\lim _{\alpha \to \frac{1}{4} \pi} \frac{2}{\pi} \int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\alpha t) dt = \frac{(-1)^{n} \cos(\frac{1}{8} \pi)}{2^{2n - 1}}.
 \end{equation*}
 	Let's assume that $\Xi$ were ultimately of one sign, say positive for $t \geq T$ where $T \in \field{R}$. Then for all $L > 0$ and $T' \geq T$ we have
 \begin{equation*}
@@ -412,13 +412,13 @@ In this chapter we will introduce the theta function, define the xi function and
 \end{equation*}
 	is convergent and therefore the integral is uniformly convergent with respect to $0 \leq \alpha \leq \frac{1}{4}\pi$ and it follows that
 \begin{equation*}
-	\frac{2}{\pi} \int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\frac{1}{4} \pi t) dt = \frac{(-1)^{n} \cos(\frac{1}{8} \pi)}{2^{2n - 1}}.
+	\int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\frac{1}{4} \pi t) dt = \frac{(-1)^{n} \pi \cos(\frac{1}{8} \pi)}{2^{2n}}.
 \end{equation*}
 	Now we choose $n$ to be odd. The right-hand side is negative and therefore
 \begin{equation*}
 \begin{aligned}
-	\frac{2}{\pi} \int _T ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\frac{1}{4} \pi t) dt 
-		&< - \frac{2}{\pi} \int _0 ^{T} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\frac{1}{4} \pi t) dt \\
+	\int _T ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\frac{1}{4} \pi t) dt 
+		&< - \int _0 ^{T} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\frac{1}{4} \pi t) dt \\
 		&< KT^{2n},
 \end{aligned}
 \end{equation*}
@@ -428,7 +428,7 @@ In this chapter we will introduce the theta function, define the xi function and
 \end{equation*}
 	for $2T \leq t \leq 2T + 1$. Hence
 \begin{equation*}
-	\frac{2}{\pi} \int _T ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\frac{1}{4} \pi t) dt \geq - \frac{2}{\pi} \int _{2T} ^{2T + 1} mt^{2n} dt \geq m(2T)^{2n}.
+	\int _T ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\frac{1}{4} \pi t) dt \geq \int _{2T} ^{2T + 1} mt^{2n} dt \geq m(2T)^{2n}.
 \end{equation*}
 	Hence
 \begin{equation*}
