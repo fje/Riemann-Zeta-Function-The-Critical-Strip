@@ -1,8 +1,4 @@
-The prime number theorem is a very fundamental statement about the asymptotic behaviour of the distribution of prime numbers. Based on the fact which we established in the previous chapter, that the Riemann zeta function doesn't have zeros on the line $\sigma = 1$ and by introducing Tchebychev's psi-function together with two auxiliary functions, we will have enough tools to manage to prove said theorem.
-
-
-\section{Tchebychev's $\psi$ function}
-
+The prime number theorem is a very fundamental statement about the asymptotic behaviour of the distribution of prime numbers and may be stated as follows:
 
 \begin{definition}
 	We define the function
@@ -14,6 +10,18 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \end{equation*}
 	as the prime number counting function summing over all primes $p \leq x$.
 \end{definition}
+
+
+\begin{theorem}[Prime Number Theorem]
+	It holds that 
+\begin{equation*}
+	\pi(x) \sim \frac{x}{\log(x)} \textit{ as } x \to \infty.
+\end{equation*}
+\end{theorem}
+
+Based on the fact, which we established in the previous chapter, that the Riemann zeta function doesn't have zeros on the line $\sigma = 1$ and by introducing Tchebychev's psi-function together with a more convenient auxiliary function, we will have enough tools to manage to prove above theorem.
+
+\section{Tchebychev's $\psi$ function}
 
 
 \begin{definition}
@@ -42,11 +50,11 @@ The prime number theorem is a very fundamental statement about the asymptotic be
     	\left\{
     		\begin{array}{ll}
         		\log(p), & \text{if } n = p^m,\\
-        		0, & \text{otherwise},
+        		0, & \text{otherwise}.
         	\end{array}
 		\right.
 \end{equation*}
-	then it's clear that
+	Then it's clear that
 \begin{equation*}
 	\psi(x) = \sum _{1 \leq n \leq x} \Lambda(n).
 \end{equation*}
@@ -77,7 +85,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \begin{equation*}
 	\frac{\psi(x)}{x} \leq \frac{\pi(x) \log(x)}{x}.
 \end{equation*}
-	This asymptotic condition $\psi(x) \sim x$ implies the first inequality. For the second inequality we fix $0 < \alpha < 1$ and note that
+	The asymptotic condition $\psi(x) \sim x$ implies the first inequality. For the second inequality we fix $0 < \alpha < 1$ and note that
 \begin{equation*}
 	\psi(x) \geq \sum _{p \leq x} \log(p) \geq \sum _{x^\alpha < p \leq x} \log(p) \geq \cbr{\pi(x) - \pi(x^\alpha)} \log(x^\alpha),
 \end{equation*}
@@ -109,7 +117,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 	If $\psi_1(x) \sim \frac{x^2}{2}$ as $x \to \infty$, then $\psi(x) \sim x$ as $x \to \infty$.
 \end{lemma}
 \begin{proof}
-	It suffices to show that $\psi(x) \sim x$. This can easily be seen from the fact that if $\alpha < 1 < \beta$, then
+	This can easily be seen from the fact that if $\alpha < 1 < \beta$, then
 \begin{equation*}
 	\frac{1}{(1 - \alpha) x} \int _{\alpha x} ^x \psi(u) du \leq \psi(x) \leq \frac{1}{(\beta - 1) x} \int _{x} ^{\beta x} \psi(u) du.
 \end{equation*}
@@ -123,9 +131,9 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \end{equation*}
 	In turn this implies
 \begin{equation*}
-	\limsup _{x \to \infty} \frac{\psi(x)}{x} \leq \frac{1}{\beta - 1} \cbr{\frac{1}{2} \beta^2 - \frac{1}{2}} = \frac{1}{2} (\beta + 1).
+	\limsup _{x \to \infty} \frac{\psi(x)}{x} \leq \frac{1}{\beta - 1} \cbr{\frac{\beta^2}{2} - \frac{1}{2}} = \frac{\beta + 1}{2}.
 \end{equation*}
-	Since this result holds for all $\beta > 1$ , we have proved that
+	Since this result holds for all $\beta > 1$, we have proved that
 \begin{equation*}
 	\limsup _{x \to \infty} \frac{\psi(x)}{x} \leq 1. 
 \end{equation*}
@@ -144,7 +152,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \end{equation*}
 \end{lemma}
 \begin{proof}
-	We know that for $\sigma > 1$ we have
+	By Lemma~\ref{lem:LogEulerProd} for $\sigma > 1$ we may write
 \begin{equation*}
 	\log(\zeta(s)) = \sum _{m,p} \frac{p^{-ms}}{m}.
 \end{equation*}
@@ -225,7 +233,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \begin{equation*}
 	f(s) = \frac{a^s}{s(s + 1)} = \frac{e^{s \beta}}{s(s + 1)}.
 \end{equation*}
-	Then $\res(f(s), 0) = 1$ and $\res(f(s), 1) = -\frac{1}{a}$. For $T > 0$, consider the path $\Gamma(T)$ shown in Figure~\ref{fig:ContourGamma}. Now, we choose $T$ large enough such that $0$ and $-1$ are contained in the interior of the contour $\Gamma(T)$. By the residue formula we get
+	Then $\res(f, 0) = 1$ and $\res(f, -1) = -\frac{1}{a}$. For $T > 0$, consider the path $\Gamma(T)$ shown in Figure~\ref{fig:ContourGamma}. Now, we choose $T$ large enough such that $0$ and $-1$ are contained in the interior of the contour $\Gamma(T)$. By the residue formula we get
 \begin{equation*}
 	\frac{1}{2 \pi i} \int _{\Gamma(T)} f(s) ds = 1 - \frac{1}{a}.
 \end{equation*}
@@ -239,9 +247,9 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \end{equation*}
 	and since $\sigma \leq c$ we also have the estimate $\abs{e^{\beta s}} \leq e^{\beta c}$. Therefore
 \begin{equation*}
-	\lim _{T \to \infty} \abs{\int _{C(T)} f(s) ds} \leq \frac{C}{T^2} 2 \pi T = 0
+	\abs{\int _{C(T)} f(s) ds} \leq \frac{C}{T^2} 2 \pi T \to 0
 \end{equation*}
-	and the case where $a \geq 1$ is proved. If $0 < a < 1$ we consider the half circle lying to the right of $S(T)$. Noting there are no poles in the interior of the contour we can give a similar argument that the integral over the half circle vanishes for $T \to \infty$.
+	as $T \to \infty$, and the case where $a \geq 1$ is proved. If $0 < a < 1$ we consider the half circle lying to the right of $S(T)$. Noting there are no poles in the interior of the contour we can give a similar argument that the integral over the half circle vanishes for $T \to \infty$.
 \end{proof}
 
 
@@ -270,7 +278,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \begin{equation*}
 \begin{aligned}	
 	\psi_1(x)
-		&= \int _0 ^x \psi(u) du = \sum _{n = 1} ^\infty \int _0 ^x \Lambda(n) f_n(u) \\ 
+		&= \int _0 ^x \psi(u) du = \sum _{n = 1} ^\infty \int _0 ^x \Lambda(n) f_n(u) du \\ 
 		&= \sum _{n \leq x} \Lambda(n) \int _n ^x du = \sum _{n \leq x} \Lambda(n)(x - n).
 \end{aligned}
 \end{equation*}
@@ -296,43 +304,43 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \begin{tikzpicture}
 	[decoration={
 		markings,
-		mark=at position 0.5cm with {\arrow[line width=1pt]{>}},
-		mark=at position 3.5cm with {\arrow[line width=1pt]{>}}
+		mark=at position 0.8cm with {\arrow[line width=1pt]{>}},
+		mark=at position 7cm with {\arrow[line width=1pt]{>}}
 	}]
 
 	% The path
-	\path[draw,line width=0.6pt,postaction=decorate] (-2.5, -2) -- (-2.5, 2);
-	\path[draw,line width=0.6pt,postaction=decorate] (-0.5, -2) -- (-0.5, -1) -- (0.5, -1) -- (0.5, 1) -- (-0.5, 1) -- (-0.5, 2);
-	\path[draw,line width=0.6pt,postaction=decorate] (2.5, -2) -- (2.5, -1) -- (1.8, -1) -- (1.8, 1) -- (2.5, 1) -- (2.5, 2);
+	\path[draw,line width=0.6pt,postaction=decorate] (-3, -3) -- (-3, 3);
+	\path[draw,line width=0.6pt,postaction=decorate] (-0.5, -3) -- (-0.5, -1) -- (0.5, -1) -- (0.5, 1) -- (-0.5, 1) -- (-0.5, 3);
+	\path[draw,line width=0.6pt,postaction=decorate] (3.5, -3) -- (3.5, -1) -- (2.8, -1) -- (2.8, 1) -- (3.5, 1) -- (3.5, 3);
 	
 	% The labels
-	\node[below] at (-3.3, 0) {$s = 1$};
+	\node[below] at (-3.8, 0) {$s = 1$};
 	\node[below] at (-0.5, 0) {$s = 1$};
-	\node[below] at (2.5, 0) {$s = 1$};
+	\node[below] at (3.5, 0) {$s = 1$};
 	
-	\node[below] at (-2.5, -2.62) {$\sigma = c$};
-	\node[below] at (-0.5, -2.5) {$\gamma(T)$};
-	\node[below] at (2.5, -2.5) {$\gamma(T, \delta)$};
+	\node[below] at (-3, -3.62) {$\sigma = c$};
+	\node[below] at (-0.5, -3.5) {$\gamma(T)$};
+	\node[below] at (3.5, -3.5) {$\gamma(T, \delta)$};
 	
-	\node[right] at (2.5, -1.5) {$\gamma_1$};
-	\node[below] at (2.1, -1) {$\gamma_2$};
-	\node[left] at (1.8, 0.6) {$\gamma_3$};
-	\node[above] at (2.1, 1) {$\gamma_4$};
-	\node[right] at (2.5, 1.5) {$\gamma_5$};
+	\node[right] at (3.5, -2) {$\gamma_1$};
+	\node[below] at (3.1, -1) {$\gamma_2$};
+	\node[left] at (2.8, -0.6) {$\gamma_3$};
+	\node[above] at (3.1, 1) {$\gamma_4$};
+	\node[right] at (3.5, 2) {$\gamma_5$};
 	
-	\node[left] at (-0.5, 1) {$T$};
-	\node[left] at (1.8, 0) {$\delta$};
+	\node[above] at (0.5, 1) {$c + iT$};
+	\node[left] at (2.8, 0) {$1 - \delta$};
 	
-	\draw[xshift=0cm] (-3.3,0) node[circle,fill,inner sep=1.2pt](a){};	
+	\draw[xshift=0cm] (-3.8,0) node[circle,fill,inner sep=1.2pt](a){};	
 	\draw[xshift=0cm] (-0.5,0) node[circle,fill,inner sep=1.2pt](a){};
-	\draw[xshift=0cm] (2.5,0) node[circle,fill,inner sep=1.2pt](a){};
-	\draw[xshift=0cm] (-0.5, 1) node[circle,fill,inner sep=1.2pt](a){};
-	\draw[xshift=0cm] (1.8, 0) node[circle,fill,inner sep=1.2pt](a){};
+	\draw[xshift=0cm] (3.5,0) node[circle,fill,inner sep=1.2pt](a){};
+	\draw[xshift=0cm] (0.5, 1) node[circle,fill,inner sep=1.2pt](a){};
+	\draw[xshift=0cm] (2.8, 0) node[circle,fill,inner sep=1.2pt](a){};
 \end{tikzpicture}
 \caption{Three stages: the line $\sigma = c$, the contours $\gamma(T)$ and $\gamma(T, \delta)$}
 \label{fig:ContourGamma2}
 \end{figure}
-	We first fix $c > 1$, say $c = 2$ and assume that $x$ is also fixed with $x \geq 2$. Let $F(s)$ denote the integrand
+	We first fix $c > 1$, say $c = 2$, and assume that $x$ is also fixed with $x \geq 2$. Let $F(s)$ denote the integrand
 \begin{equation*}
 	F(s) = \frac{x^{s + 1}}{s(s + 1)} \cbr{-\frac{\zeta'(s)}{\zeta(s)}}.
 \end{equation*}
@@ -347,7 +355,7 @@ The prime number theorem is a very fundamental statement about the asymptotic be
 \end{equation*}
 	Such a choice can be made since $\zeta$ does not vanish on the line $\sigma = 1$. Now $F(s)$ has a simple pole at $s = 1$. In fact, by Corollary~\ref{cor:ZetaCont}, we know that $\zeta(s) = \frac{1}{s - 1} + H(s)$, where $H(s)$ is regular near $s = 1$. Hence $-\frac{\zeta'(s)}{\zeta(s)} =\frac{1}{s - 1} + h(s)$, where $h(s)$ is holomorphic near $s = 1$, and so we have $\res(F(s), 1) = \frac{x^2}{2}$. As a result we receive
 \begin{equation*}
-	\frac{1}{2 \pi i} \int _{\gamma(T)} F(s) ds = \frac{x^2}{2} + \frac{1}{2 \pi i} \int _{\gamma(T, \delta)} \frac{x^{s + 1}}{s(s + 1)} F(s) ds.
+	\frac{1}{2 \pi i} \int _{\gamma(T)} F(s) ds = \frac{x^2}{2} + \frac{1}{2 \pi i} \int _{\gamma(T, \delta)} F(s) ds.
 \end{equation*}
 	We now decompose the contour $\gamma(T, \delta)$ as $\gamma_1, \gamma_2, \gamma_3, \gamma_4, \gamma_5$ and estimate each of the integrals over $\gamma_j, j=1,2,3,4,5$. First we contend that there exists $T$ so large that
 \begin{equation*}

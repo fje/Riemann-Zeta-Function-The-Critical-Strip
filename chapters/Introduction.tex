@@ -14,11 +14,11 @@ First of all we want to draw some conclusions about the function's behaviour at 
 \end{equation*}
 \end{lemma}
 \begin{proof}
-	Let $0 < x < 1$. Taking the logarithm of $\zeta$'s Euler product representation and using the power series expansion for the logarithm yields
+	Let $x \in \cbr{0, 1}$. Using the power series expansion for the logarithm
 \begin{equation*}
 	\log\cbr{\frac{1}{1 - x}} = -\log(1 + (-x)) = \sum _{m = 1} ^\infty \cbr{\frac{x^m}{m}}.
 \end{equation*}
-	Let $s > 1$ be real. We find that
+	and applying this to $\zeta$'s absolutely convergent Euler product representation while assuming that $s \in \cbr{0 , \infty}$ yields
 \begin{equation*}
 \begin{aligned}	
 	\log(\zeta(s)) 
@@ -37,7 +37,7 @@ First of all we want to draw some conclusions about the function's behaviour at 
         \end{array}
 	\right.
 \end{equation*}
-	By analytic continuation this also holds for $s \in \field{C}$ with $\sigma > 1$. In particular $\log(\zeta(s))$ is well defined as $\zeta(s) \neq 0$ for $\sigma > 1$.
+	By analytic continuation this also holds for $s \in \field{C}$ with $\sigma > 1$. In particular if $U = \fbr{s \in \field{C} \colon \sigma > 1}$ then $\zeta \in \mathcal{H}(U)$ where $U$ is simply connected and $\zeta(s) \neq 0$ for all $s \in U$. Hence there exists a $g \in \mathcal{H}(U)$ such that $\zeta(s) = e^{g(s)}$. Therefore $\log(\zeta(s))$ is well defined for all $s \in U$.
 \end{proof}
 
 
@@ -50,9 +50,9 @@ First of all we want to draw some conclusions about the function's behaviour at 
 \begin{proof}
 	The application of the well known trigonometric identity
 \begin{equation*}
-	\cos(\theta)^2 = \frac{1}{2}(1 + \cos(2 \theta))
+	\cos(\theta)^2 = \frac{1 + \cos(2 \theta)}{2}
 \end{equation*}
-	immediately gives
+	immediately leads to
 \begin{equation*}
 	3 + 4 \cos(\theta) + \cos(2 \theta) = 2 + 4 \cos(\theta) + 2 \cos(\theta)^2 = 2(1 + \cos(\theta))^2 \geq 0.
 \end{equation*}
@@ -62,7 +62,7 @@ First of all we want to draw some conclusions about the function's behaviour at 
 \begin{corollary}\label{cor:LogZeta}
 	If $\sigma > 1$ then
 \begin{equation*}
-	\log(\abs{\zeta^3(\sigma) \zeta^4(\sigma + it) \zeta(\sigma + 2it)}) \geq 0.
+	\log\cbr{\abs{\zeta^3(\sigma) \zeta^4(\sigma + it) \zeta(\sigma + 2it)}} \geq 0.
 \end{equation*}
 \end{corollary}
 \begin{proof}
@@ -75,14 +75,14 @@ First of all we want to draw some conclusions about the function's behaviour at 
 		= n^{-\sigma} \cos(t \log(n))
 \end{aligned}
 \end{equation*}
-	and for $r > 0, \theta \in \field{R}$ we have
+	and for $r > 0$ we have
 \begin{equation*}
-	\Re(\log(r e^{i \theta}) = \Re(\log(r) + i\theta + k2i\pi) = \log(r) = \log(\abs{r e^{i\theta}}).
+	\Re(\log(r e^{i \theta})) = \log(r) = \log\cbr{\abs{r e^{i\theta}}}.
 \end{equation*}
 	Therefore Lemma~\ref{lem:LogEulerProd} and Lemma~\ref{lem:CosAddTh} directly give us our final result
 \begin{equation*}
 \begin{aligned}
-	\log(\abs{\zeta^3(\sigma) \zeta^4(\sigma + it) \zeta(\sigma + 2it)}) &= \\
+	\log\cbr{\abs{\zeta^3(\sigma) \zeta^4(\sigma + it) \zeta(\sigma + 2it)}} &= \\
 	3\log(\abs{\zeta(\sigma)}) + 4\log(\abs{\zeta(\sigma + it)}) + \log(\abs{\zeta(\sigma + 2it)}) &= \\
 	3\Re(\log(\zeta(\sigma))) + 4\Re(\log(\zeta(\sigma + it))) + \Re(\log(\zeta(\sigma + 2it))) &= \\
 	\sum _{n=1} ^{\infty} c_n n^{-\sigma}(3 + 4\cos(t \log(n)) + \cos(2 t \log(n))) &\geq 0.
@@ -113,7 +113,7 @@ First of all we want to draw some conclusions about the function's behaviour at 
 \end{equation*}
 	Since $\zeta$ is also holomorphic in $s = 1 + 2it_0$ the function is locally bounded there, therefore we have
 \begin{equation*}
-	 \abs{\zeta(\sigma + 2it)} = \mathcal{O}\cbr{1} \text{ as } \sigma \to 1.
+	 \abs{\zeta(\sigma + 2it_0)} = \mathcal{O}\cbr{1} \text{ as } \sigma \to 1.
 \end{equation*}
 	Hence we get
 \begin{equation*}
@@ -127,7 +127,7 @@ First of all we want to draw some conclusions about the function's behaviour at 
 	It holds that $\zeta(it) \neq 0$ for all $t \in \field{R}$.
 \end{corollary}
 \begin{proof}
-	This proof relies on the fact that the xi function (see Definition~\ref{def:XiDefinition}) satisfies the symmetry $\xi(s) = \xi(1 - s)$ (see Proposition~\ref{pro:XiIdentity}). This, and the fact that only $\zeta$ can produce zeros in $\xi$, immediately yields
+	This proof relies on the fact that the $\xi$ function (see Definition~\ref{def:XiDefinition}) satisfies the symmetry $\xi(s) = \xi(1 - s)$ (see Proposition~\ref{pro:XiIdentity}). This, and the fact that only $\zeta$ can produce zeros in $\xi$, immediately yields
 \begin{equation*}
 	\zeta(1 + it) \neq 0 \implies \xi(1 + it) = \xi(-it) \neq 0 \implies \zeta(-it) \neq 0,	
 \end{equation*}
@@ -174,14 +174,14 @@ We want to study the growth of $\zeta$, $\zeta'$ and $\zeta^{-1}$ in the half-pl
 	where $H(s) = \sum _{n = 1} ^\infty \delta_n(s)$ is holomorphic in the half-plane $\sigma > 0$. 
 \end{corollary}
 \begin{proof}
-	We first assume that $\sigma > 1$. When $N \to \infty$ in formula~\ref{equ:SumDelta} we observe that by the estimate $\abs{\delta_n(s)} \leq \frac{\abs{s}}{n^{\sigma + 1}}$ we have uniform convergence of the series $\sum _{n = 1} ^\infty \delta_n(s)$ in any half plane $\sigma \geq \delta$ when $\delta > 0$. Since $\sigma > 1$ the series $\sum _{n = 1} ^{\infty} n^{-s}$ converges to $\zeta(s)$. This proves our assertion when $\sigma > 1$. The uniform convergence shows that $\sum _{n = 1} ^\infty \delta_n(s)$ is holomorphic when $\sigma > 0$ and thus shows that $\zeta$ is extendable to that half-plane and that the identity continues to hold there.
+	We first assume that $\sigma > 1$. When $N \to \infty$ in formula~(\ref{equ:SumDelta}) we observe that by the estimate $\abs{\delta_n(s)} \leq \frac{\abs{s}}{n^{\sigma + 1}}$ we have uniform convergence of the series $\sum _{n = 1} ^\infty \delta_n(s)$ on compact sets in any half plane $\sigma \geq \delta$ when $\delta > 0$. Since $\sigma > 1$ the series $\sum _{n = 1} ^{\infty} n^{-s}$ converges to $\zeta(s)$. This proves our assertion when $\sigma > 1$. The uniform convergence shows that $\sum _{n = 1} ^\infty \delta_n(s)$ is holomorphic when $\sigma > 0$ and thus shows that $\zeta$ is extendable to that half-plane and that the identity continues to hold there.
 \end{proof}
 
 
 \begin{proposition}
-	For each $\sigma_0 \in \bbr{0 , 1}$ and every $\eps > 0$, there exists a constant $c_\eps$, so that
+	For each $\sigma_0 \in \bbr{0 , 1}$ and every $\eps > 0$, there exists a constant $c_\eps$, such that
 \begin{equation}\label{equ:ZetaEst1}
-	\abs{\zeta(s)} \leq c_\eps \abs{t}^\eps, \textit{ if } \sigma_0 \leq \sigma \textit{ and } \abs{t} \geq 1
+	\abs{\zeta(s)} \leq c_\eps \abs{t}^{1 - \sigma_0 + \eps}, \textit{ if } \sigma_0 \leq \sigma \textit{ and } \abs{t} \geq 1
 \end{equation}
 	and
 \begin{equation}\label{equ:ZetaEst2}
@@ -193,27 +193,27 @@ We want to study the growth of $\zeta$, $\zeta'$ and $\zeta^{-1}$ in the half-pl
 \begin{equation*}
 	\abs{\delta_n(s)} \leq \cbr{\frac{\abs{s}}{n^{\sigma_0 + 1}}}^\delta \cbr{\frac{2}{n^{\sigma_0}}}^{1 - \delta} \leq \frac{2 \abs{s}^\delta}{n^{\sigma_0 + \delta}},
 \end{equation*}
-	as long as $\delta \geq 0$. Now choose $\delta = 1 - \sigma_0 + \eps$ and apply the identity to Corollary~\ref{cor:ZetaCont}. Then, with $\sigma \geq \sigma_0$, we find
+	as long as $\delta \geq 0$. Now choose $\delta = 1 - \sigma_0 + \eps$ and apply the estimate to Corollary~\ref{cor:ZetaCont}. Then, with $\sigma \geq \sigma_0$, we find
 \begin{equation*}
 	\abs{\zeta(s)} \leq \abs{\frac{1}{s - 1}} + 2 \abs{s}^{1 - \sigma_0 + \eps} \sum _{n = 1} ^\infty \frac{1}{n^{1 + \eps}},
 \end{equation*}
 	and conclusion~(\ref{equ:ZetaEst1}) is proved. By the Cauchy integral formula,
 \begin{equation*}
-	\zeta'(s) = \frac{1}{2 \pi r} \int _0 ^{2 \pi} \zeta(s + re^{i \theta}) e^{i \theta} d\theta,
+	\zeta'(s) = \frac{1}{2 \pi r} \int _0 ^{2 \pi} \zeta(s + re^{i \theta}) e^{-i \theta} d\theta,
 \end{equation*}
 	where the integration is taken over a circle of radius $r$ centred at $s$. Now choose $r = \eps$ and observe that this circle lies in the half-plane $\sigma \geq 1 - \eps$, and so the estimate~(\ref{equ:ZetaEst2}) follows as a consequence of the estimate~(\ref{equ:ZetaEst1}) on replacing $2 \eps$ by $\eps$.
 \end{proof}
 
 
 \begin{proposition}
-	For every $\eps > 0$ we have $\frac{1}{\abs{\zeta(s)}} \leq c_\eps \abs{t}^\eps$ for $c_\eps \in \field{R}_{> 0}$ if $\sigma > 1$ and $\abs{t} \geq 1$.
+	For every $\eps > 0$ there exists a constant $c_\eps$, such that $\frac{1}{\abs{\zeta(s)}} \leq c_\eps \abs{t}^\eps$, if $\sigma \geq 1$ and $\abs{t} \geq 1$.
 \end{proposition}
 \begin{proof}
-	From the previous observation we have that
+	By Corollary~\ref{cor:LogZeta} we have that
 \begin{equation*}
 	\abs{\zeta^3(\sigma) \zeta^4(\sigma + it) \zeta(\sigma + 2it)} \geq 1,
 \end{equation*}
-	whenever $\sigma > 1$. Using our previous estimate for $\zeta$ we find that
+	whenever $\sigma > 1$. Using our previous estimate~(\ref{equ:ZetaEst1}) for $\zeta$ we find that
 \begin{equation*}
 	\abs{\zeta^4(\sigma + it)} \geq c \abs{\zeta^{-3}(\sigma)} \abs{t}^{-\eps} \geq c' (\sigma - 1)^3 \abs{t}^{-\eps}
 \end{equation*}
@@ -242,7 +242,7 @@ We want to study the growth of $\zeta$, $\zeta'$ and $\zeta^{-1}$ in the half-pl
 \begin{equation*}
 	\abs{\zeta(\sigma + it)} \geq c'(\sigma' - 1)^{\frac{3}{4}}\abs{t}^{-\frac{\eps}{4}} - c''(\sigma' - 1)\abs{t}^{\eps}.
 \end{equation*}
-	We can now choose $A = \abs{\frac{c'}{2 c''}}^4$, and recall that $\sigma' - 1 = A \abs{t}^{-5 \eps}$. This gives precisely
+	We can now choose $A = \cbr{\frac{c'}{2 c''}}^4$, and recall that $\sigma' - 1 = A \abs{t}^{-5 \eps}$. This gives precisely
 \begin{equation*}
 	c'(\sigma' - 1)^{\frac{3}{4}} \abs{t}^{-\frac{\eps}{4}} = 2 c''(\sigma' - 1) \abs{t}^{\eps}
 \end{equation*}
@@ -279,19 +279,19 @@ We want to study the growth of $\zeta$, $\zeta'$ and $\zeta^{-1}$ in the half-pl
 
 
 \begin{theorem}[Mellin's Inversion Formula]
-	Let $\varphi(s)$ be analytic in $a < \sigma, c < b$ and $\varphi(s) \to 0$ uniformly as $t \to \pm\infty$ with its integral along the line $\sigma = c$ converging absolutely. Then if
+	Let $\varphi(s)$ be analytic for $\sigma \in \cbr{a, b}$ and $\varphi(s) \to 0$ uniformly as $t \to \pm\infty$ with its integral along the line $\sigma = c$ converging absolutely where $c \in \cbr{a, b}$. Then if
 \begin{equation*}
-	f(x) = \fbr{\mathcal{M}^{-1} \varphi} = \frac{1}{2 \pi i} \int _{c - i \infty} ^{c + \infty} x^{-s} \varphi(s) ds
+	f(x) = \fbr{\mathcal{M}^{-1} \varphi}(x) = \frac{1}{2 \pi i} \int _{c - i \infty} ^{c + i\infty} x^{-s} \varphi(s) ds
 \end{equation*}
 	we have that
 \begin{equation*}
-	\varphi(s) = \fbr{\mathcal{M} f} = \int _0 ^\infty x^{s - 1} f(x) dx.
+	\varphi(s) = \fbr{\mathcal{M} f}(s) = \int _0 ^\infty x^{s - 1} f(x) dx.
 \end{equation*}
 	Conversely suppose $f$ is piecewise continuous on the positive real numbers and suppose the integral
 \begin{equation*}
 	\varphi(s) = \int _0 ^\infty x^{s - 1} f(x) dx
 \end{equation*}
-	is absolutely convergent in $a < \sigma < b$. Then f is recoverable via the inverse Mellin transform from its Mellin transform.
+	is absolutely convergent for $\sigma \in \cbr{a, b}$. Then $f$ is recoverable via the inverse Mellin transform from its Mellin transform.
 \end{theorem}
 \begin{proof}
 	This theorem follows from the inversion formula for the Laplace transform and the proof can, for example, be found in $\cite{McLachlan1953}$.
@@ -302,7 +302,7 @@ We want to study the growth of $\zeta$, $\zeta'$ and $\zeta^{-1}$ in the half-pl
 
 
 \begin{definition}
-	For each $a > 0$ we define $\mathcal{F}_a$ by the space of all functions $f$ that satisfy the following two conditions:
+	For each $a > 0$ we define $\mathcal{F}_a$ to be the space of all functions $f$ that satisfy the following two conditions:
 \begin{enumerate}
 	\item[(i)] The function $f$ is holomorphic on the horizontal strip
 		\begin{equation*}
@@ -310,18 +310,18 @@ We want to study the growth of $\zeta$, $\zeta'$ and $\zeta^{-1}$ in the half-pl
 		\end{equation*}
 	\item[(ii)] There exists a constant $A > 0$ such that
 		\begin{equation*}
-			\abs{f(s)} \leq \frac{A}{1 + \sigma^2} \hsp \textit{ for all } \sigma \in \field{R}, \abs{y} < a.
+			\abs{f(s)} \leq \frac{A}{1 + \sigma^2} \hsp \textit{ for all } \sigma \in \field{R}, \abs{t} < a.
 		\end{equation*}
 \end{enumerate}
 \end{definition}
 
 
 \begin{theorem}[Poisson Summation Formula]
-	For $f \in \mathcal{F}_a$, the Poisson summation may be stated as
+	For $f \in \mathcal{F}_a$ for some $a > 0$, the Poisson summation may be stated as
 \begin{equation*}
 	\sum _{n = -\infty} ^\infty f(n) = \sum _{k = -\infty} ^\infty \hat{f}(k),
 \end{equation*}
-	where $\hat{f}$ is the Fourier transform of $f$.
+	where $\hat{f}$ is the Fourier transform of $f \big\vert _\field{R}$.
 \end{theorem}
 \begin{proof}
 	The entire proof can be found in \cite{Stein2003}.

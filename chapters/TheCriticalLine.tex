@@ -8,17 +8,17 @@ In this chapter we will introduce the theta function, define the xi function and
 	The function
 \begin{equation*}
 \begin{aligned}
-	&\vartheta \colon \field{R}_{> 0} \to \field{C}, \\
+	&\vartheta \colon \field{R}_{> 0} \to \field{R}, \\
 	&\vartheta(x) = \sum _{n = -\infty} ^{\infty} e^{-\pi n^2 x}
 \end{aligned}
 \end{equation*}
 	is known as a version of the renowned "theta" function. For further references we also introduce two auxiliary functions
 \begin{equation*}
-	\omega(x) = \frac{1}{2}\cbr{\vartheta(x) - 1} = \sum _{n = 1} ^{\infty} e^{-\pi n^2 x}
+	\omega(x) = \frac{\vartheta(x) - 1}{2} = \sum _{n = 1} ^{\infty} e^{-\pi n^2 x}
 \end{equation*}
 	and
 \begin{equation*}
-	\theta(x) = \omega(x) - \frac{1}{2 \sqrt{t}} = \sum _{n = 1} ^{\infty} e^{-\pi n^2 x} - \frac{1}{2 \sqrt{t}}.
+	\theta(x) = \omega(x) - \frac{1}{2 \sqrt{x}} = \sum _{n = 1} ^{\infty} e^{-\pi n^2 x} - \frac{1}{2 \sqrt{x}}.
 \end{equation*}
 \end{definition}
 
@@ -140,13 +140,13 @@ In this chapter we will introduce the theta function, define the xi function and
 \begin{lemma}
 	For $x > 0$ we have the identity
 \begin{equation*}
-	\vartheta(x) = \frac{1}{\sqrt{x}} \vartheta(\frac{1}{x}).
+	\vartheta(x) = \frac{1}{\sqrt{x}} \vartheta\cbr{\frac{1}{x}}.
 \end{equation*}
 \end{lemma}
 \begin{proof}
 	The change of variables $x \to \sqrt{y} x$ in the integral formula~(\ref{equ:FourierSame}) shows that the Fourier transform of the function $f(x) = e^{-\pi y x^2}$ is in fact $\hat{f}(\xi) = \frac{1}{\sqrt{y}} e^{-\frac{\pi \xi^2}{y}}$. Apparently $f(x)$ belongs to $\mathcal{F}_a$. Thus we may apply the Poisson summation formula to the pair $\cbr{f, \hat{f}}$ and we get
 \begin{equation*}
-	\vartheta(x) = \sum _{n = -\infty} ^\infty e^{-\pi x n^2} = \sum _{n = -\infty} ^\infty \frac{1}{\sqrt{x}} e^{-\frac{\pi \xi^2}{x}} = \frac{1}{\sqrt{x}} \vartheta(\frac{1}{x}).
+	\vartheta(x) = \sum _{n = -\infty} ^\infty e^{-\pi x n^2} = \sum _{n = -\infty} ^\infty \frac{1}{\sqrt{x}} e^{-\frac{\pi \xi^2}{x}} = \frac{1}{\sqrt{x}} \vartheta\cbr{\frac{1}{x}}.
 \end{equation*}
 \end{proof}
 
@@ -158,20 +158,20 @@ In this chapter we will introduce the theta function, define the xi function and
 \end{equation*}
 	and
 \begin{equation*}
-	\theta(x) = \frac{1}{\sqrt{x}} \theta(\frac{1}{x}).
+	\theta(x) = \frac{1}{\sqrt{x}} \theta\cbr{\frac{1}{x}}.
 \end{equation*}
 \end{corollary}
 \begin{proof}
 	For the first identity we have
 \begin{equation*}
-	2 \omega(x) + 1 = \vartheta(x) = \frac{1}{\sqrt{x}} \vartheta(\frac{1}{x}) = \frac{1}{\sqrt{x}} \cbr{2 \omega(\frac{1}{x}) + 1}
+	2 \omega(x) + 1 = \vartheta(x) = \frac{1}{\sqrt{x}} \vartheta\cbr{\frac{1}{x}} = \frac{1}{\sqrt{x}} \cbr{2 \omega\cbr{\frac{1}{x}} + 1}
 \end{equation*}
 	and just solve the equation for $\omega(x)$. The second identity follows directly from the first by writing
 \begin{equation*}
 \begin{aligned}	
 	\theta(x) = \omega(x) - \frac{1}{2 \sqrt{x}} 
 	&= \frac{1}{\sqrt{x}} \omega\cbr{\frac{1}{x}} - \frac{1}{2} \\ 
-	&= \frac{1}{\sqrt{x}} \cbr{\omega\cbr{\frac{1}{x}} - \frac{\sqrt{x}}{2}} = \frac{1}{\sqrt{x}} \theta(x).
+	&= \frac{1}{\sqrt{x}} \cbr{\omega\cbr{\frac{1}{x}} - \frac{\sqrt{x}}{2}} = \frac{1}{\sqrt{x}} \theta\cbr{\frac{1}{x}}.
 \end{aligned}
 \end{equation*}
 \end{proof}
@@ -306,7 +306,11 @@ In this chapter we will introduce the theta function, define the xi function and
 \end{equation*}
 	We now in fact observe that
 \begin{equation*}
-	\Im(\Xi(t)) = \lim _{\sigma \to \frac{1}{2}} \Im(\xi(\sigma + it)) = \lim _{\sigma \to \frac{1}{2}} \Im\cbr{\frac{(\sigma + it)(\sigma + it - 1)}{2}\xi^*(\sigma + it)} = 0,
+\begin{aligned}	
+	\Im(\Xi(t)) 
+	&= \lim _{\sigma \to \frac{1}{2}} \Im(\xi(\sigma + it)) \\
+	&= \lim _{\sigma \to \frac{1}{2}} \Im\cbr{\frac{(\sigma + it)(\sigma + it - 1)}{2}\xi^*(\sigma + it)} = 0,
+\end{aligned}
 \end{equation*}
 	hence $\Xi$ is entirely real.
 \end{proof}
