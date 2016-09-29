@@ -107,21 +107,21 @@ In this chapter we will introduce the theta function, define the xi function and
 \end{equation*}
 	Now, let us suppose $\xi > 0$ and consider the function $f(z) = e^{-\pi z^2}$ for $z \in \field{C}$. $f$ is clearly entire. According to Cauchy's theorem we have
 \begin{equation*}
-	\int _{\gamma} f(z) dz = 0.
+	\int _{\gamma} f(z) dz = 0,
 \end{equation*}
-	For the integral over $\gamma_{1_+}$ we simply have
+	where $\gamma$ is the contour in Figure~\ref{fig:ContourC}. For the integral over $\gamma_{1_+}$ we simply have
 \begin{equation*}
 	\lim _{R \to \infty} \int _{-R} ^R e^{-\pi x^2} dx = 1.
 \end{equation*}
 	For the integral over $\gamma_{2_+}$ for a fixed $\xi$ we have
 \begin{equation*}
 \begin{aligned}	
-	\lim _{R \to \infty} I(R) 
-	&= \lim _{R \to \infty} \int _0 ^\xi f(R + i y) i dy \\
-	&= \lim _{R \to \infty} \int _0 ^\xi e^{-\pi (R^2 + 2iRy - y^2)} i dy = 0,
+	I(R) 
+	&\coloneqq \int _0 ^\xi f(R + i y) i dy \\
+	&= \int _0 ^\xi e^{-\pi (R^2 + 2iRy - y^2)} i dy \to 0
 \end{aligned}
 \end{equation*}
-	since we may estimate it by
+	as $R \to \infty$, since we may estimate it by
 \begin{equation*}
 	\abs{I(R)} \leq Ce^{-\pi R^2}.
 \end{equation*}
@@ -144,7 +144,7 @@ In this chapter we will introduce the theta function, define the xi function and
 \end{equation*}
 \end{lemma}
 \begin{proof}
-	The change of variables $x \to \sqrt{y} x$ in the integral formula~(\ref{equ:FourierSame}) shows that the Fourier transform of the function $f(x) = e^{-\pi y x^2}$ is in fact $\hat{f}(\xi) = \frac{1}{\sqrt{y}} e^{-\frac{\pi \xi^2}{y}}$. Apparently $f(x)$ belongs to $\mathcal{F}_a$. Thus we may apply the Poisson summation formula to the pair $\cbr{f, \hat{f}}$ and we get
+	The change of variables $x \to \sqrt{y} x$ in the integral formula~(\ref{equ:FourierSame}) shows that the Fourier transform of the function $f(x) = e^{-\pi y x^2}$ is in fact $\hat{f}(\xi) = \frac{1}{\sqrt{y}} e^{-\frac{\pi \xi^2}{y}}$. Apparently $f(x)$ belongs to $\mathcal{F}_a$. Thus we may apply the Poisson summation formula~\ref{the:Poisson} to the pair $\cbr{f, \hat{f}}$ and we get
 \begin{equation*}
 	\vartheta(x) = \sum _{n = -\infty} ^\infty e^{-\pi x n^2} = \sum _{n = -\infty} ^\infty \frac{1}{\sqrt{x}} e^{-\frac{\pi \xi^2}{x}} = \frac{1}{\sqrt{x}} \vartheta\cbr{\frac{1}{x}}.
 \end{equation*}
@@ -185,18 +185,18 @@ In this chapter we will introduce the theta function, define the xi function and
 \begin{equation*}
 \begin{aligned}
 	&\xi \colon \field{C} \to \field{C}, \\
-	&\xi(s) = \frac{1}{2}s(s - 1) \pi ^{-\frac{1}{2} s} \Gamma(\frac{s}{2}) \zeta(s)
+	&\xi(s) = \frac{s(s - 1)}{2} \pi ^{-\frac{s}{2}} \Gamma\cbr{\frac{s}{2}} \zeta(s)
 \end{aligned}
 \end{equation*}
 	be the xi function and for further reference we define
 \begin{equation*}
-	\xi^*(s) = \frac{2}{s(s - 1)} \xi(s) = \pi ^{-\frac{1}{2} s} \Gamma(\frac{s}{2}) \zeta(s)
+	\xi^*(s) = \frac{2}{s(s - 1)} \xi(s) = \pi ^{-\frac{s}{2}} \Gamma\cbr{\frac{s}{2}} \zeta(s)
 \end{equation*}
 \end{definition}
 
 
 \begin{remark}
-	$\xi$ is entire since $s$ and $(s - 1)$ cancel out the simple poles of $\Gamma$ in $s = 0$ and $\zeta$ in $s = 1$ and since the trivial zeros of $\zeta$ eradicate the simple poles of $\Gamma$ in $s = -2n$ for $n \in \field{N}_{> 0}$.
+	$\xi$ is entire since $s$ and $s - 1$ cancel out the simple poles of $\Gamma$ in $s = 0$ and $\zeta$ in $s = 1$ and since the trivial zeros of $\zeta$ eradicate the simple poles of $\Gamma$ in $s = -2n$ for $n \in \field{N}_{> 0}$.
 \end{remark}
 
 
@@ -209,47 +209,50 @@ In this chapter we will introduce the theta function, define the xi function and
 \begin{proof}
 	Let us recall the formula
 \begin{equation*}
-	\Gamma(\frac{1}{2}s) = \int _0 ^\infty e^{-y} y^{\frac{1}{2}s - 1} dy,
+	\Gamma\cbr{\frac{s}{2}} = \int _0 ^\infty e^{-y} y^{\frac{s}{2} - 1} dy,
 \end{equation*}	
 	whenever $\sigma > 0$. We observe that if $n \geq 1$ and by substituting $y = x \pi n^2$ we may write
 \begin{equation*}
-	\int _0 ^\infty e^{-n^2 \pi x} x^{\frac{1}{2} s - 1} dx = n^{-s} \pi^{-\frac{1}{2}s}\Gamma(\frac{1}{2}s).
+	\int _0 ^\infty e^{-n^2 \pi x} x^{\frac{s}{2} - 1} dx = n^{-s} \pi^{-\frac{s}{2}}\Gamma\cbr{\frac{s}{2}}.
 \end{equation*}
 	Hence if $\sigma > 1$ we get
 \begin{equation*}
 \begin{aligned}
-	\xi^*(s) = \pi^{-\frac{1}{2}s} \Gamma(\frac{1}{2}s) \zeta(s) 
-		&= \sum _{n = 1} ^\infty \int _0 ^\infty x^{\frac{1}{2} s - 1} e^{-n^2 \pi x} dx \\
-		&= \int _0 ^\infty x^{\frac{1}{2} s - 1} \sum _{n = 1} ^\infty e^{-n^2 \pi x} dx
-		= \int _0 ^\infty x^{\frac{1}{2} s - 1} \omega(x) dx,
+	\xi^*(s) = \pi^{-\frac{s}{2}} \Gamma\cbr{\frac{s}{2}} \zeta(s) 
+		&= \sum _{n = 1} ^\infty \int _0 ^\infty x^{\frac{s}{2} - 1} e^{-n^2 \pi x} dx \\
+		&= \int _0 ^\infty x^{\frac{s}{2} - 1} \sum _{n = 1} ^\infty e^{-n^2 \pi x} dx
+		= \int _0 ^\infty x^{\frac{s}{2} - 1} \omega(x) dx,
 \end{aligned}
 \end{equation*}
 	where we can interchange sum and integral because of absolute convergence. We now use Corollary~\ref{cor:ThetaIdentity} and may now write
 \begin{equation*}
 \begin{aligned}	
-	\xi^*(s) &= \\
-		\int _0 ^1 x^{\frac{1}{2} s - 1} \omega(x) dx  + \int _1 ^\infty x^{\frac{1}{2} s - 1} \omega(x) dx &= \\
-		\int _0 ^1 x^{\frac{1}{2} s - 1} \cbr{\frac{1}{\sqrt{x}} \omega\cbr{\frac{1}{x}} + \frac{1}{2\sqrt{x}} - \frac{1}{2}} dx  + \int _1 ^\infty x^{\frac{1}{2} s - 1} \omega(x) dx &= \\
-		\frac{1}{s - 1} - \frac{1}{s} + \int _0 ^1 x^{\frac{1}{2} s - \frac{3}{2}} \omega(x) dx + \int _1 ^\infty x^{\frac{1}{2} s - 1} \omega(x) dx &= \\
-		\frac{1}{s - 1} - \frac{1}{s} + \int _1 ^\infty \cbr{x^{-\frac{1}{2} s - \frac{1}{2}} + x^{\frac{1}{2} s - 1}} \omega(x) dx &.
+	\xi^*(s) 
+	&= \\
+		\int _0 ^1 x^{\frac{s}{2} - 1} \omega(x) dx  + \int _1 ^\infty x^{\frac{s}{2} - 1} \omega(x) dx &= \\
+		\int _0 ^1 x^{\frac{s}{2} - 1} \cbr{\frac{1}{\sqrt{x}} \omega\cbr{\frac{1}{x}} + \frac{1}{2\sqrt{x}} - \frac{1}{2}} dx  + \int _1 ^\infty x^{\frac{1}{2} s - 1} \omega(x) dx 
+	&= \\
+		\frac{1}{s - 1} - \frac{1}{s} + \int _0 ^1 x^{\frac{s}{2} - \frac{3}{2}} \omega\cbr{\frac{1}{x}} dx + \int _1 ^\infty x^{\frac{s}{2} - 1} \omega(x) dx 
+	&= \\
+		\frac{1}{s - 1} - \frac{1}{s} + \int _1 ^\infty \cbr{x^{-\frac{s}{2} - \frac{1}{2}} + x^{\frac{s}{2} - 1}} \omega(x) dx &.
 \end{aligned}
 \end{equation*}
 	Since the function $\omega$ has exponential decay at infinity the last integral defines an entire function. Thus the formula holds by analytic continuation for all $s \in \field{C}$ with simple poles at $s = 0$ and $s = 1$. The right-hand side remains unchanged when $s$ is replaced by $1 - s$. Hence we finally get
 \begin{equation*}
-	\xi(s) = \frac{1}{2}s(1 - s) \xi^*(s) = \frac{1}{2}(1 - s)s \xi^*(1 - s) = \xi(1 - s).
+	\xi(s) = -\frac{s(1 - s)}{2} \xi^*(s) = -\frac{(1 - s)s}{2} \xi^*(1 - s) = \xi(1 - s).
 \end{equation*}
 \end{proof}
 
 
 \begin{lemma}\label{lem:XiMellin}
-	Let $f(x) = 2 \theta(x^2)$. For $0 < \sigma < 1$ we have
+	Let $f(x) = 2 \theta(x^2)$. For $\sigma \in \cbr{0, 1}$ we have
 \begin{equation*}
 	\xi^*(s) = \int _0 ^\infty x^{s - 1} f(x) dx,
 \end{equation*}
-	hence $\xi^*(s) = \fbr{\mathcal{M} f}$ and therefore by Mellin's inversion formula $f = \fbr{\mathcal{M}^{-1} \xi^*}$ whenever $0 < \sigma < 1$.
+	hence $\xi^* = \fbr{\mathcal{M} f}$ and therefore by Mellin's inversion formula $f = \fbr{\mathcal{M}^{-1} \xi^*}$ whenever $\sigma \in \cbr{0, 1}$.
 \end{lemma}
 \begin{proof}
-	This formula is essentially the same as stated in \cite{Edwards1974} [p. 213] after the substitution $u \to \frac{1}{x}$.
+	This formula is essentially the same as stated in \cite{Edwards1974} [p. 213] after the substitution $u = \frac{1}{x}$.
 \end{proof}
 
 
@@ -258,7 +261,7 @@ In this chapter we will introduce the theta function, define the xi function and
 \begin{equation*}
 \begin{aligned}
 	&\Xi \colon \field{R} \to \field{C}, \\
-	&\Xi(t) = \xi(\frac{1}{2} + it) = -\frac{1}{2}(t^2 + \frac{1}{4}) \pi ^{-\frac{1}{4} - \frac{1}{2} it} \Gamma(\frac{1}{4} + \frac{1}{2} it) \zeta(\frac{1}{2} + it)
+	&\Xi(t) = \xi\cbr{\frac{1}{2} + it} = -\frac{1}{2}\cbr{t^2 + \frac{1}{4}} \pi ^{-\frac{1}{4} - \frac{1}{2} it} \Gamma\cbr{\frac{1}{4} + \frac{1}{2} it} \zeta\cbr{\frac{1}{2} + it}
 \end{aligned}
 \end{equation*}
 	be the restriction of the xi function to $\sigma = \frac{1}{2}$.
@@ -271,7 +274,7 @@ In this chapter we will introduce the theta function, define the xi function and
 \begin{proof}
 	Let $t \in \field{R}$. We have
 \begin{equation*}
-	\Xi(-t) = \xi(\frac{1}{2} - it) = \xi(1 - (\frac{1}{2} + it)) = \xi(\frac{1}{2} + it) = \Xi(t).
+	\Xi(-t) = \xi\cbr{\frac{1}{2} - it} = \xi\cbr{1 - \cbr{\frac{1}{2} + it}} = \xi\cbr{\frac{1}{2} + it} = \Xi(t).
 \end{equation*}
 \end{proof}
 
@@ -282,11 +285,11 @@ In this chapter we will introduce the theta function, define the xi function and
 \begin{proof}
 	We first recall Corollary~\ref{cor:ThetaIdentity} which immediately yields the symmetric form
 \begin{equation*}
-	x^{-\frac{1}{4}} \theta(\frac{1}{x}) = x^{\frac{1}{4}} \theta(x).
+	x^{-\frac{1}{4}} \theta\cbr{\frac{1}{x}} = x^{\frac{1}{4}} \theta(x).
 \end{equation*}
-	Plugging this into the integral form of the functional equation of $\xi^*$ from Lemma~\ref{lem:XiMellin} for $0 < \sigma < 1$ gives
+	Plugging this into the integral form of the functional equation of $\xi^*$ from Lemma~\ref{lem:XiMellin} for $\sigma \in \cbr{0, 1}$ gives
 \begin{equation*}
-	\xi^*(s) = \int _0 ^\infty x^{\frac{s - \frac{1}{2}}{2}} x^{\frac{1}{4} - 1} \theta(x) dx = \int _0 ^\infty x^{-\frac{s - \frac{1}{2}}{2}} x^{\frac{1}{4} - 1} \theta(x) dx.
+	\xi^*(s) = \int _0 ^\infty x^{\frac{1}{2}\cbr{s - \frac{1}{2}}} x^{\frac{1}{4} - 1} \theta(x) dx = \int _0 ^\infty x^{-\frac{1}{2}\cbr{s - \frac{1}{2}}} x^{\frac{1}{4} - 1} \theta(x) dx.
 \end{equation*}
 	By addition of the two sides we obtain
 \begin{equation*}
@@ -294,14 +297,14 @@ In this chapter we will introduce the theta function, define the xi function and
 \end{equation*}
 	Further, by applying the addition theorem
 \begin{equation*}
-	\cosh(x + y) = \cosh(x)\cosh(y) + \sinh(x) \sinh(y)
+	\cosh(v + w) = \cosh(v)\cosh(w) + \sinh(v) \sinh(w)
 \end{equation*}	
-	for all $x,y \in \field{R}$ we may deduce that
+	for all $v,w \in \field{C}$ we may deduce that
 \begin{equation*}
 \begin{aligned}	
 	\xi^*(s) 
 		&= \int _0 ^\infty \cosh\cbr{\frac{1}{2} \cbr{\sigma - \frac{1}{2}} \log(x)} \cos\cbr{\frac{t}{2} \log(x)} x^{\frac{1}{4} - 1} \theta(x) dx \\
-		&+ \int _0 ^\infty \sinh\cbr{\frac{1}{2} \cbr{\sigma - \frac{1}{2}} \log(x)} \sin\cbr{\frac{t}{2} \log(x)} x^{\frac{1}{4} - 1} \theta(x) dx.
+		&+ i\int _0 ^\infty \sinh\cbr{\frac{1}{2} \cbr{\sigma - \frac{1}{2}} \log(x)} \sin\cbr{\frac{t}{2} \log(x)} x^{\frac{1}{4} - 1} \theta(x) dx.
 \end{aligned}
 \end{equation*}
 	We now in fact observe that
@@ -322,38 +325,38 @@ In this chapter we will introduce the theta function, define the xi function and
 \begin{proposition}
 	We have the identity
 \begin{equation*}	
-	\int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} \cos(xt) dt = \frac{1}{2} \pi (e^{\frac{1}{2} x} - 2e^{-\frac{1}{2}x} \omega(e^{-2x})).
+	\int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} \cos(xt) dt = \frac{\pi}{2} (e^{\frac{x}{2}} - 2e^{-\frac{x}{2}} \omega(e^{-2x})).
 \end{equation*}
 \end{proposition}
 \begin{proof}
-	Let $f(t) = \abs{\gamma(t)}^2 = \lambda(it) \lambda(-it)$ where $\lambda$ is analytic and let
+	Let $f(t) = \lambda(it) \lambda(-it)$ such that $\abs{\lambda(it)}^2 = \lambda(it) \lambda(-it)$ where $\lambda$ is analytic and let
 \begin{equation*}
 	\Phi(x) = \int _0 ^{\infty} f(t) \Xi(t) \cos(xt) dt.	
 \end{equation*}
-	By substituting $y = e^x$ we get
+	Since $\Xi$ is even and by substituting $y = e^x$ we may write
 \begin{equation*}
 \begin{aligned}
 	\Phi(x) 
-		&= \int _0 ^\infty \lambda(it) \lambda(-it) E(t) \frac{1}{2}(y^{it} + y^{-it}) dt \\
-		&= \frac{1}{2} \int _{-\infty} ^\infty \lambda(it) \lambda(-it) E(t) y^{it} dt \\
-		&= \frac{1}{2} \int _{-\infty} ^\infty \lambda(it) \lambda(-it) \xi(\frac{1}{2} + it) y^{it} dt
+		&= \int _0 ^\infty \lambda(it) \lambda(-it) \Xi(t) \frac{1}{2}(y^{it} + y^{-it}) dt \\
+		&= \frac{1}{2} \int _{-\infty} ^\infty \lambda(it) \lambda(-it) \Xi(t) y^{it} dt \\
+		&= \frac{1}{2} \int _{-\infty} ^\infty \lambda(it) \lambda(-it) \xi\cbr{\frac{1}{2} + it} y^{it} dt
 \end{aligned}
 \end{equation*}
 	Again the substitution $s = \frac{1}{2} + it$ gives
 \begin{equation*}
 \begin{aligned}
 	\Phi(x) 
-		&= \frac{1}{2 i\sqrt{y}} \int _{\frac{1}{2} -\infty} ^{\frac{1}{2} + \infty} \lambda(s - \frac{1}{2}) \lambda(\frac{1}{2} - s) \xi(s) y^{s} dt \\
-		&= \frac{1}{2 i\sqrt{y}} \int _{\frac{1}{2} -\infty} ^{\frac{1}{2} + \infty} \lambda(s - \frac{1}{2}) \lambda(\frac{1}{2} - s) (s - 1) \Gamma(1 + \frac{1}{2}s) \pi ^{-\frac{1}{2} s} \zeta(s) y^{s} ds.
+		&= \frac{1}{2 i\sqrt{y}} \int _{\frac{1}{2} -i\infty} ^{\frac{1}{2} + i\infty} \lambda\cbr{s - \frac{1}{2}} \lambda\cbr{\frac{1}{2} - s} \xi(s) y^{s} dt \\
+		&= \frac{1}{2 i\sqrt{y}} \int _{\frac{1}{2} -i\infty} ^{\frac{1}{2} + i\infty} \lambda\cbr{s - \frac{1}{2}} \lambda\cbr{\frac{1}{2} - s} s(s - 1) \Gamma\cbr{\frac{s}{2}} \pi ^{-\frac{s}{2}} \zeta(s) y^{s} ds.
 \end{aligned}
 \end{equation*}
 	Finally setting $\lambda(s) = \frac{1}{s + \frac{1}{2}}$ together with Lemma~\ref{lem:XiMellin} yields 
 \begin{equation*}
 \begin{aligned}
-	\Phi(x) 
-		&= -\frac{1}{2 i\sqrt{y}} \int _{\frac{1}{2} -\infty} ^{\frac{1}{2} + \infty} \frac{1}{s} \Gamma(1 + \frac{1}{2} s) \pi ^{-\frac{1}{2} s} \zeta(s) y^{s} ds \\
-		&= -\frac{1}{4 i\sqrt{y}} \int _{\frac{1}{2} -\infty} ^{\frac{1}{2} + \infty} \Gamma(\frac{1}{2} s) \pi ^{-\frac{1}{2} s} \zeta(s) y^{s} ds \\
-		&= -\frac{\pi}{2 \sqrt{y}} \cbr{\frac{1}{2 i \pi} \int _{\frac{1}{2} -\infty} ^{\frac{1}{2} + \infty} \xi^*(s) \cbr{\frac{1}{y}}^{-s} ds} \\
+	\Phi(x)
+		&= -\frac{1}{4 i\sqrt{y}} \int _{\frac{1}{2} - i\infty} ^{\frac{1}{2} + i\infty} \Gamma\cbr{\frac{s}{2}} \pi ^{-\frac{s}{2}} \zeta(s) y^{s} ds \\
+		&= -\frac{\pi}{2 \sqrt{y}} \cbr{\frac{1}{2 i \pi} \int _{\frac{1}{2} - i\infty} ^{\frac{1}{2} + i\infty} \xi^*(s) \cbr{\frac{1}{y}}^{-s} ds} \\
+		&= -\frac{\pi}{\sqrt{y}} \theta\cbr{\frac{1}{y^2}} \\
 		&= -\frac{\pi}{\sqrt{y}} \omega\cbr{\frac{1}{y^2}} + \frac{1}{2} \pi \sqrt{y}.
 \end{aligned}
 \end{equation*}
@@ -362,26 +365,26 @@ In this chapter we will introduce the theta function, define the xi function and
 
 
 \begin{theorem}
-	$\zeta$ has infinitely many roots in $s = \frac{1}{2} + t$ for $t \in \field{R}$.
+	$\zeta$ has infinitely many roots on the critical line $\sigma = \frac{1}{2}$.
 \end{theorem}
 \begin{proof}
 	We substitute $x = -i \alpha$ and plug it into the previously shown identity
 \begin{equation*}
 \begin{aligned}
 	\frac{2}{\pi} \int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} \cosh(\alpha t) dt 
-	&= e^{-\frac{1}{2} \alpha} - 2e^{\frac{1}{2} i \alpha} \omega(e^{2 i \alpha}) \\
-	&= 2 \cos(\frac{1}{2} \alpha) - 2e^{\frac{1}{2} i \alpha} \cbr{\frac{1}{2} + \omega(e^{2 i \alpha})}.
+	&= e^{-\frac{i \alpha}{2}} - 2e^{\frac{i \alpha}{2}} \omega(e^{2 i \alpha}) \\
+	&= 2 \cos\cbr{\frac{\alpha}{2}} - 2e^{\frac{i \alpha}{2}} \cbr{\frac{1}{2} + \omega(e^{2 i \alpha})}.
 \end{aligned}
 \end{equation*}
-	Since $\zeta(\frac{1}{2} + it) = \mathcal{O}(t^A)$ and $\Xi(t) = \mathcal{O}(t^A e^{-\frac{1}{4} \pi t})$ and since $\cosh(\alpha t) = \mathcal{O}(e^{\alpha t})$, for $\alpha < \frac{1}{4} \pi$ we can interchange integral and differentiation according to the dominated convergence theorem and differentiate both sides with respect to $\alpha$ on both sides $2n$-times and receive
+	By Corollary~\ref{pro:ZetaEst} we know that $\zeta\cbr{\frac{1}{2} + it} = \mathcal{O}(t^A)$ as well as $\Xi(t) = \mathcal{O}(t^A e^{-\frac{1}{4} \pi t})$ for some constant $A > 0$ whenever $\abs{t} \geq 1$. This and the fact that $\cosh(\alpha t) = \mathcal{O}(e^{\alpha t})$ allows us to interchange integral and differentiation for $\alpha < \frac{1}{4} \pi$ according to the dominated convergence theorem. We then differentiate both sides $2n$-times with respect to $\alpha$ and receive
 \begin{equation*}
 \begin{aligned}	
 	\frac{2}{\pi} \int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n}
 		&\cosh(\alpha t) dt \\
-		&= \frac{(-1)^{n} \cos(\frac{1}{2} \alpha)}{2^{2n - 1}} - 2 \cbr{\frac{d}{d\alpha}}^{2n}e^{\frac{1}{2} i \alpha} \cbr{\frac{1}{2} + \omega(e^{2 i \alpha})}.
+		&= \frac{(-1)^{n} \cos(\frac{\alpha}{2})}{2^{2n - 1}} - 2 \cbr{\frac{d}{d\alpha}}^{2n} \bbr{e^{\frac{i \alpha}{2}} \cbr{\frac{1}{2} + \omega(e^{2 i \alpha})}}.
 \end{aligned}
 \end{equation*}
-	In order to show that the last term vanishes as $\alpha \to 0$ for every fixed $n$ we use Corollary~\ref{cor:ThetaIdentity} and write
+	In order to show that the last term vanishes as $\alpha \to \frac{\pi}{4}$ for every fixed $n$ we use Corollary~\ref{cor:ThetaIdentity} and may write
 \begin{equation*}
 \begin{aligned}
 	\omega(i + \delta) = \sum _{n=1} ^{\infty} e^{-n^2 \pi (i + \delta)}
@@ -390,43 +393,39 @@ In this chapter we will introduce the theta function, define the xi function and
 		&= \frac{1}{\sqrt \delta} \omega\cbr{\frac{1}{4\delta}} - \frac{1}{\sqrt \delta} \omega\cbr{\frac{1}{\delta}} - \frac{1}{2}.
 \end{aligned}
 \end{equation*}
-	Obviously along every route in an angle $\arg(x - i) < \frac{1}{2} \pi$ we have
+	Thus it follows easily that $\omega(x) + \frac{1}{2}$ and all its derivatives tend to $0$ as $x \to i$ along every route in an angle $\abs{\arg(x - i)} < \frac{\pi}{2}$. Therefore we have shown that
 \begin{equation*}
-	\lim _{x \to i} \omega(x) + \frac{1}{2} = 0.
+	\lim _{\alpha \to \frac{1}{4} \pi} \frac{2}{\pi} \int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\alpha t) dt = \frac{(-1)^{n} \cos(\frac{\pi}{8})}{2^{2n - 1}}.
 \end{equation*}
-	Therefore we have shown that
+	Let us assume that $\Xi$ were ultimately of one sign, say positive for $t \geq T$ where $T \in \field{R}$. Then we write
 \begin{equation*}
-	\lim _{\alpha \to \frac{1}{4} \pi} \frac{2}{\pi} \int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\alpha t) dt = \frac{(-1)^{n} \cos(\frac{1}{8} \pi)}{2^{2n - 1}}.
+	\lim _{\alpha \to \frac{1}{4} \pi} \frac{2}{\pi} \int _T ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\alpha t) dt \eqqcolon L.
 \end{equation*}
-	Let's assume that $\Xi$ were ultimately of one sign, say positive for $t \geq T$ where $T \in \field{R}$. Then for all $L > 0$ and $T' \geq T$ we have
+	Hence for all $T' > T$ and $\alpha < \frac{\pi}{4}$ we have
 \begin{equation*}
-	\lim _{\alpha \to \frac{1}{4} \pi} \frac{2}{\pi} \int _T ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\alpha t) dt = L.
+	\frac{2}{\pi} \int _T ^{T'} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\alpha t) dt \leq L,
 \end{equation*}
-	Hence
+	Thus for $\alpha = \frac{\pi}{4}$ we get
 \begin{equation*}
-	\lim _{\alpha \to \frac{1}{4} \pi} \frac{2}{\pi} \int _T ^{T'} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\alpha t) dt \leq L.
+	\frac{2}{\pi} \int _T ^{T'} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh\cbr{\frac{\pi}{4} t} dt \leq L.
 \end{equation*}
-	Hence for $\alpha = \frac{1}{4}\pi$ we have
+	Therefore the integral
 \begin{equation*}
-	\frac{2}{\pi} \int _T ^{T'} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\frac{1}{4}\pi t) dt \leq L.
+	\frac{2}{\pi} \int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh\cbr{\frac{\pi}{4} t} dt
 \end{equation*}
-	Thus the integral
+	is convergent and therefore the integral is uniformly convergent with respect to $0 \leq \alpha \leq \frac{\pi}{4}$ and it follows that
 \begin{equation*}
-	\frac{2}{\pi} \int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\frac{1}{4}\pi t) dt
-\end{equation*}
-	is convergent and therefore the integral is uniformly convergent with respect to $0 \leq \alpha \leq \frac{1}{4}\pi$ and it follows that
-\begin{equation*}
-	\int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\frac{1}{4} \pi t) dt = \frac{(-1)^{n} \pi \cos(\frac{1}{8} \pi)}{2^{2n}}.
+	\int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh\cbr{\frac{\pi}{4} t} dt = \frac{(-1)^{n} \pi \cos\cbr{\frac{\pi}{8}}}{2^{2n}}.
 \end{equation*}
 	Now we choose $n$ to be odd. The right-hand side is negative and therefore
 \begin{equation*}
 \begin{aligned}
-	\int _T ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\frac{1}{4} \pi t) dt 
-		&< - \int _0 ^{T} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\frac{1}{4} \pi t) dt \\
+	\int _T ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh\cbr{\frac{\pi}{4} t} dt 
+		&< - \int _0 ^{T} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh\cbr{\frac{\pi}{4} t} dt \\
 		&< KT^{2n},
 \end{aligned}
 \end{equation*}
-	where $K$ is independent of $n$. But by hypothesis there is a $m = m(T)$ such that
+	where $K$ is independent of $n$. But by hypothesis there is a positive $m = m(T)$ such that
 \begin{equation*}
 	\frac{\Xi(t)}{t^2 + \frac{1}{4}} \geq m
 \end{equation*}
@@ -434,9 +433,9 @@ In this chapter we will introduce the theta function, define the xi function and
 \begin{equation*}
 	\int _T ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh(\frac{1}{4} \pi t) dt \geq \int _{2T} ^{2T + 1} mt^{2n} dt \geq m(2T)^{2n}.
 \end{equation*}
-	Hence
+	Thus
 \begin{equation*}
 	m2^{2n} < K,
 \end{equation*}
-	which is false for sufficiently large $n$. That proves our theorem by contradiction.
+	which apparently is false for sufficiently large $n$. That proves our theorem by contradiction.
 \end{proof}
