@@ -50,11 +50,11 @@ First of all we want to draw some conclusions about the function's behaviour at 
 \begin{proof}
 	The application of the well known trigonometric identity
 \begin{equation*}
-	\cos(\theta)^2 = \frac{1 + \cos(2 \theta)}{2}
+	\cos^2(\theta) = \frac{1 + \cos(2 \theta)}{2}
 \end{equation*}
 	immediately leads to
 \begin{equation*}
-	3 + 4 \cos(\theta) + \cos(2 \theta) = 2 + 4 \cos(\theta) + 2 \cos(\theta)^2 = 2(1 + \cos(\theta))^2 \geq 0.
+	3 + 4 \cos(\theta) + \cos(2 \theta) = 2 + 4 \cos(\theta) + 2 \cos^2(\theta) = 2(1 + \cos(\theta))^2 \geq 0.
 \end{equation*}
 \end{proof}
 
@@ -117,7 +117,7 @@ First of all we want to draw some conclusions about the function's behaviour at 
 \end{equation*}
 	Hence we get
 \begin{equation*}
-	 \lim\limits_{\sigma \to 1} \abs{\zeta(\sigma)^3 \zeta(\sigma + it_0)^4 \zeta(\sigma + 2it_0)} = 0.
+	 \lim\limits_{\sigma \to 1} \abs{\zeta^3(\sigma) \zeta^4(\sigma + it_0) \zeta(\sigma + 2it_0)} = 0.
 \end{equation*}
 	But this contradicts Corollary~\ref{cor:LogZeta} since $\log(x) < 0$ for all $x \in \cbr{0 , 1}$.
 \end{proof}
@@ -127,7 +127,7 @@ First of all we want to draw some conclusions about the function's behaviour at 
 	It holds that $\zeta(it) \neq 0$ for all $t \in \field{R}$.
 \end{corollary}
 \begin{proof}
-	This proof relies on the fact that the $\xi$ function (see Definition~\ref{def:XiDefinition}) satisfies the symmetry $\xi(s) = \xi(1 - s)$ (see Proposition~\ref{pro:XiIdentity}). This, and the fact that only $\zeta$ can produce zeros in $\xi$, immediately yields
+	This proof relies on the fact that the $\xi$ function (see Definition~\ref{def:XiDefinition}) satisfies the symmetry $\xi(s) = \xi(1 - s)$ for all $s \in \field{C}$ (see Proposition~\ref{pro:XiIdentity}). This, and the fact that only $\zeta$ can produce zeros in $\xi$, immediately yields
 \begin{equation*}
 	\zeta(1 + it) \neq 0 \implies \xi(1 + it) = \xi(-it) \neq 0 \implies \zeta(-it) \neq 0,	
 \end{equation*}

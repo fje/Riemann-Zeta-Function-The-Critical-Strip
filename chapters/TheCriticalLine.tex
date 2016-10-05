@@ -162,7 +162,7 @@ In this chapter we will introduce the theta function, define the xi function and
 \end{equation*}
 \end{corollary}
 \begin{proof}
-	For the first identity we have
+	For the first identity we get
 \begin{equation*}
 	2 \omega(x) + 1 = \vartheta(x) = \frac{1}{\sqrt{x}} \vartheta\cbr{\frac{1}{x}} = \frac{1}{\sqrt{x}} \cbr{2 \omega\cbr{\frac{1}{x}} + 1}
 \end{equation*}
@@ -257,14 +257,14 @@ In this chapter we will introduce the theta function, define the xi function and
 
 
 \begin{definition}
-	Let
+	Let the function
 \begin{equation*}
 \begin{aligned}
 	&\Xi \colon \field{R} \to \field{C}, \\
 	&\Xi(t) = \xi\cbr{\frac{1}{2} + it} = -\frac{1}{2}\cbr{t^2 + \frac{1}{4}} \pi ^{-\frac{1}{4} - \frac{1}{2} it} \Gamma\cbr{\frac{1}{4} + \frac{1}{2} it} \zeta\cbr{\frac{1}{2} + it}
 \end{aligned}
 \end{equation*}
-	be the restriction of the xi function to $\sigma = \frac{1}{2}$.
+	be the restriction of the $\xi$ function to $\sigma = \frac{1}{2}$.
 \end{definition}
 
 
@@ -376,7 +376,7 @@ In this chapter we will introduce the theta function, define the xi function and
 	&= 2 \cos\cbr{\frac{\alpha}{2}} - 2e^{\frac{i \alpha}{2}} \cbr{\frac{1}{2} + \omega(e^{2 i \alpha})}.
 \end{aligned}
 \end{equation*}
-	By Corollary~\ref{pro:ZetaEst} we know that $\zeta\cbr{\frac{1}{2} + it} = \mathcal{O}(t^A)$ as well as $\Xi(t) = \mathcal{O}(t^A e^{-\frac{1}{4} \pi t})$ for some constant $A > 0$ whenever $\abs{t} \geq 1$. This and the fact that $\cosh(\alpha t) = \mathcal{O}(e^{\alpha t})$ allows us to interchange integral and differentiation for $\alpha < \frac{1}{4} \pi$ according to the dominated convergence theorem. We then differentiate both sides $2n$-times with respect to $\alpha$ and receive
+	By Corollary~\ref{pro:ZetaEst} we know that $\zeta\cbr{\frac{1}{2} + it} = \mathcal{O}(t^\eps)$ as well as $\Xi(t) = \mathcal{O}(t^\eps e^{-\frac{1}{4} \pi t})$ for some constant $\eps > \frac{1}{2}$ whenever $\abs{t} \geq 1$. This and the fact that $\cosh(\alpha t) = \mathcal{O}(e^{\alpha t})$ allows us to interchange integral and differentiation for $\alpha < \frac{1}{4} \pi$ according to the dominated convergence theorem. We then differentiate both sides $2n$-times with respect to $\alpha$ and receive
 \begin{equation*}
 \begin{aligned}	
 	\frac{2}{\pi} \int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n}
@@ -413,11 +413,11 @@ In this chapter we will introduce the theta function, define the xi function and
 \begin{equation*}
 	\frac{2}{\pi} \int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh\cbr{\frac{\pi}{4} t} dt
 \end{equation*}
-	is convergent and therefore the integral is uniformly convergent with respect to $0 \leq \alpha \leq \frac{\pi}{4}$ and it follows that
+	is convergent and thereby even uniformly convergent with respect to $0 \leq \alpha \leq \frac{\pi}{4}$. It follows that
 \begin{equation*}
 	\int _0 ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh\cbr{\frac{\pi}{4} t} dt = \frac{(-1)^{n} \pi \cos\cbr{\frac{\pi}{8}}}{2^{2n}}.
 \end{equation*}
-	Now we choose $n$ to be odd. The right-hand side is negative and therefore
+	Now we choose $n$ to be odd. The right-hand side is negative yielding
 \begin{equation*}
 \begin{aligned}
 	\int _T ^{\infty} \frac{\Xi(t)}{t^2 + \frac{1}{4}} t^{2n} \cosh\cbr{\frac{\pi}{4} t} dt 
